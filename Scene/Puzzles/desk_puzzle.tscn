@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://22ncqiqy6e1t"]
+
+[ext_resource type="Script" uid="uid://buq7hvyj205e1" path="res://Script/Puzzles/desk_puzzle.gd" id="1_7tv63"]
+
+[node name="DeskPuzzle" type="Control" unique_id=1354080789]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7tv63")
+
+[node name="Panel" type="Panel" parent="." unique_id=974537879]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 156.0
+offset_top = 84.0
+offset_right = -150.0
+offset_bottom = -105.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CodeInput" type="LineEdit" parent="Panel" unique_id=417624416]
+layout_mode = 0
+offset_left = 461.0
+offset_top = 146.0
+offset_right = 529.5
+offset_bottom = 177.0
+
+[node name="Message" type="Label" parent="Panel" unique_id=147868348]
+layout_mode = 0
+offset_left = 434.0
+offset_top = 231.0
+offset_right = 602.0
+offset_bottom = 373.0
+
+[node name="Close_puzzle_button" type="Button" parent="Panel" unique_id=1348053786]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -41.0
+offset_bottom = 43.0
+grow_horizontal = 0
+text = "X"
+
+[connection signal="pressed" from="Panel/Close_puzzle_button" to="." method="_on_close_puzzle_button_pressed"]

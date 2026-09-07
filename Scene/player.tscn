@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b51fknuspfqbl"]
 
 [ext_resource type="Script" uid="uid://65le1rxxkh3a" path="res://Script/Player.gd" id="1_kelma"]
-[ext_resource type="Texture2D" uid="uid://l53nv8jijlpt" path="res://Cute_Fantasy_Free/Player/Player.png" id="2_y8w33"]
+[ext_resource type="Texture2D" uid="uid://l53nv8jijlpt" path="res://Assets/Cute_Fantasy_Free/Player/Player.png" id="2_y8w33"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y8w33"]
 atlas = ExtResource("2_y8w33")
@@ -357,10 +357,11 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j47wa"]
 radius = 3.6666667
-height = 13.333334
+height = 10.666667
 
-[node name="Player" type="CharacterBody2D" unique_id=1384558383]
+[node name="Player" type="CharacterBody2D" unique_id=1384558383 groups=["Player"]]
 scale = Vector2(3, 3)
+collision_layer = 3
 script = ExtResource("1_kelma")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=542654612]
@@ -370,4 +371,5 @@ animation = &"idle_down"
 frame_progress = 0.38223568
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=614615368]
+position = Vector2(-0.33333334, 2)
 shape = SubResource("CapsuleShape2D_j47wa")

@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://d0tqxs4tcc1ce"]
+
+[sub_resource type="GDScript" id="GDScript_0k3ih"]
+script/source = "extends Area2D
+
+@export var interact_name: String = \"\"
+@export var is_interactable: bool = true
+
+
+func _ready() -> void:
+	pass
+
+var interact: Callable = func():
+	pass
+
+func _on_area_entered(_area: Area2D) -> void:
+	print(\"hiiii entred\")
+	
+
+func _on_area_exited(_area: Area2D) -> void:
+	print(\"byeewa\")
+	
+"
+
+[node name="Interactable" type="Area2D" unique_id=797958782]
+collision_layer = 2
+collision_mask = 0
+script = SubResource("GDScript_0k3ih")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

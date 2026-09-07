@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://cslclw6oaflfu"]
+
+[ext_resource type="Script" uid="uid://rmtlrmbbi3il" path="res://Script/ui.gd" id="1_bpjw8"]
+[ext_resource type="Script" uid="uid://8fi7k73fu5po" path="res://addons/virtual_joystick_DX/vjdx_core_script.gd" id="1_fyqef"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfpiq"]
+corner_radius_top_left = 60
+corner_radius_top_right = 65
+corner_radius_bottom_right = 67
+corner_radius_bottom_left = 63
+
+[node name="UI" type="CanvasLayer" unique_id=1583945617]
+script = ExtResource("1_bpjw8")
+
+[node name="VirtualJoystickDX" type="Control" parent="." unique_id=1996110404]
+custom_minimum_size = Vector2(72, 72)
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 104.0
+offset_top = -160.0
+offset_right = 176.0
+offset_bottom = -87.99994
+grow_vertical = 0
+scale = Vector2(1.9199994, 1.9199994)
+pivot_offset = Vector2(36, 36.00003)
+size_flags_horizontal = 4
+size_flags_vertical = 8
+mouse_filter = 2
+script = ExtResource("1_fyqef")
+joystick_radius = 36.0
+thumb_radius = 10.0
+action_left = &"left"
+action_right = &"right"
+action_up = &"up"
+action_down = &"down"
+use_active_region = false
+region_y = 334.0
+region_w = 621.0
+region_h = 386.0
+"Colors - D-Pad" = null
+"Textures - D-Pad" = null
+Cardinals = null
+Diagonals = null
+metadata/_custom_type_script = "uid://8fi7k73fu5po"
+
+[node name="Interact_button" type="Button" parent="." unique_id=1512447732]
+offset_left = 975.0
+offset_top = 536.0
+offset_right = 1169.0
+offset_bottom = 638.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_lfpiq")
+metadata/_edit_use_anchors_ = true
+
+[node name="Save" type="Button" parent="." unique_id=550239114]
+offset_left = 990.0
+offset_top = 388.0
+offset_right = 1143.0
+offset_bottom = 482.0
+theme_override_font_sizes/font_size = 42
+text = "Save"
+
+[connection signal="pressed" from="Interact_button" to="." method="_on_interact_button_pressed"]
+[connection signal="pressed" from="Save" to="." method="_on_save_pressed"]

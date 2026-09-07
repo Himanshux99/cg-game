@@ -7,6 +7,9 @@ var last_direction = Vector2.RIGHT
 #const direction = Vector2.RIGHT
 @onready var animatedSprite2D: AnimatedSprite2D = $AnimatedSprite2D
 
+func _ready() -> void:
+	GameManager.register_player(self)
+
 func _physics_process(delta: float) -> void:
 	player_movement(delta)
 	process_animation()
@@ -32,7 +35,20 @@ func play_animation(prifix:String,dir:Vector2) -> void:
 
 
 func process_animation() -> void:
+	var animation_name: String
+
 	if velocity != Vector2.ZERO:
-		play_animation("running_",last_direction)
+		animation_name = "running_"
 	else:
-		play_animation("idle_",last_direction)
+		animation_name = "idle_"
+
+	if last_direction.x != 0:
+		animatedSprite2D.flip_h = last_direction.x < 0
+		animation_name += "right"
+	elif last_direction.y < 0:
+		animation_name += "up"
+	else:
+		animation_name += "down"
+
+	if animatedSprite2D.animation != animation_name:
+		animatedSprite2D.play(animation_name)

@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://pc88duhyejlo"]
+
+[ext_resource type="Script" uid="uid://buq7hvyj205e1" path="res://Script/Puzzles/desk_puzzle.gd" id="1_r3aiv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3aiv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jnvth"]
+texture = SubResource("AtlasTexture_r3aiv")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u202f"]
+size = Vector2(38, 39)
+
+[node name="ComputerPuzzle" type="Control" unique_id=1354080789]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r3aiv")
+
+[node name="Panel" type="Panel" parent="." unique_id=974537879]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 156.0
+offset_top = 84.0
+offset_right = -150.0
+offset_bottom = -105.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Close_puzzle_button" type="Button" parent="Panel" unique_id=1348053786]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -41.0
+offset_bottom = 43.0
+grow_horizontal = 0
+text = "X"
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1867006663]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="Panel" type="Panel" parent="Panel/MarginContainer" unique_id=576024074]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Panel/MarginContainer/Panel" unique_id=856547016]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_jnvth")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Panel/MarginContainer/Panel/Panel" unique_id=275728198]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Panel/MarginContainer/Panel/Panel/CharacterBody2D" unique_id=839884370]
+position = Vector2(20, 19.5)
+shape = SubResource("RectangleShape2D_u202f")
+
+[connection signal="pressed" from="Panel/Close_puzzle_button" to="." method="_on_close_puzzle_button_pressed"]

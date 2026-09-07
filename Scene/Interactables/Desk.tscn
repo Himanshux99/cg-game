@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://b6cuwybksdxtb"]
+
+[ext_resource type="Texture2D" uid="uid://gncgwhuklmst" path="res://Assets/Modern tiles_Free/Interiors_free/32x32/Interiors_free_32x32.png" id="1_30bbl"]
+[ext_resource type="Script" uid="uid://c8grtpuqnq6un" path="res://Script/desk.gd" id="1_jn08q"]
+[ext_resource type="PackedScene" uid="uid://22ncqiqy6e1t" path="res://Scene/Puzzles/desk_puzzle.tscn" id="2_0p3dv"]
+[ext_resource type="PackedScene" uid="uid://d2cst3bbenwx4" path="res://Interaction/Interaction Area/InteractionArea.tscn" id="2_maffw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jn08q"]
+radius = 94.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_30bbl"]
+size = Vector2(77, 66)
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=1471419889]
+script = ExtResource("1_jn08q")
+puzzle_scene = ExtResource("2_0p3dv")
+
+[node name="InteractionArea" parent="." unique_id=1724913369 instance=ExtResource("2_maffw")]
+action_name = "Sit on desk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1622309484]
+shape = SubResource("CircleShape2D_jn08q")
+debug_color = Color(2.8878452e-07, 0.6329105, 0.44980603, 0.41960785)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=583075820]
+position = Vector2(-1.5, 0)
+shape = SubResource("RectangleShape2D_30bbl")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1399537129]
+scale = Vector2(1.734375, 1.734375)
+texture = ExtResource("1_30bbl")
+hframes = 2
+frame = 1
+region_enabled = true
+region_rect = Rect2(221, 1232, 193, 46)

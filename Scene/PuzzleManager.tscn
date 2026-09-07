@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cs1bjoon7udib"]
+
+[ext_resource type="Script" uid="uid://u1pl51ir07jp" path="res://Managers/puzzleManager.gd" id="1_keto2"]
+
+[node name="PuzzleManager" type="CanvasLayer" unique_id=587444246]
+script = ExtResource("1_keto2")
