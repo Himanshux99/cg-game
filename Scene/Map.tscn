@@ -4115,7 +4115,7 @@ tile_set = SubResource("TileSet_4gagr")
 y_sort_enabled = true
 position = Vector2(563, 310)
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=227626940]
+[node name="Camera2D2" type="Camera2D" parent="Player" unique_id=227626940]
 process_callback = 0
 position_smoothing_enabled = true
 
