@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dv378xovmqw5g"
-path="res://.godot/imported/Bush 1 (no flowers) - WARM GREEN.png-d4e590eea1943d0d6b52db9739600165.ctex"
+uid="uid://bqdc8uuki4ppo"
+path="res://.godot/imported/Building3.png-0de2541b1a3d95b409dd52ebc667b154.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/gaay_assets/Bush 1 (no flowers) - WARM GREEN.png"
-dest_files=["res://.godot/imported/Bush 1 (no flowers) - WARM GREEN.png-d4e590eea1943d0d6b52db9739600165.ctex"]
+source_file="res://Assets/gaay_assets/Building3.png"
+dest_files=["res://.godot/imported/Building3.png-0de2541b1a3d95b409dd52ebc667b154.ctex"]
 
 [params]
 

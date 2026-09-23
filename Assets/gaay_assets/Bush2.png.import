@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://butboupwto76h"
-path="res://.godot/imported/Bush 1 - WARM GREEN 2.png-c52473f6cf224bcb97ac861ce5759d3a.ctex"
+uid="uid://b1g25ej2whb34"
+path="res://.godot/imported/Bush2.png-a0d1c39c042eb374e62145ae09eabaab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/gaay_assets/Bush 1 - WARM GREEN 2.png"
-dest_files=["res://.godot/imported/Bush 1 - WARM GREEN 2.png-c52473f6cf224bcb97ac861ce5759d3a.ctex"]
+source_file="res://Assets/gaay_assets/Bush2.png"
+dest_files=["res://.godot/imported/Bush2.png-a0d1c39c042eb374e62145ae09eabaab.ctex"]
 
 [params]
 
