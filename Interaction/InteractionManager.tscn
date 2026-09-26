@@ -1,20 +1,24 @@
 [gd_scene format=3 uid="uid://dkvxl3uq5uqua"]
 
 [ext_resource type="Script" uid="uid://c0ngbn3xit3kp" path="res://Managers/interactionManager.gd" id="1_p4lj5"]
+[ext_resource type="Theme" uid="uid://cpt0f7jj2ifov" path="res://GlobalTheme.tres" id="2_j22pa"]
 
-[node name="InteractionManager" type="Node2D" unique_id=1564237358]
+[node name="InteractionManager" type="CanvasLayer" unique_id=1564237358]
 script = ExtResource("1_p4lj5")
 
 [node name="Label" type="Label" parent="." unique_id=797401176]
 z_index = 100
-anchors_preset = 7
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -52.5
-offset_top = -23.0
-offset_right = 52.5
+offset_left = -187.5
+offset_top = 100.0
+offset_right = 187.5
+offset_bottom = 125.0
 grow_horizontal = 2
-grow_vertical = 0
+theme = ExtResource("2_j22pa")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 25
 text = "[E] to Interact"
+horizontal_alignment = 1

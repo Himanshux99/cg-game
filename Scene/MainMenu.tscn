@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://cq2hqtdab0747"]
+
+[ext_resource type="Texture2D" uid="uid://bjdp8yxjkd1ie" path="res://Assets/UI/Spritesheet_UI_Flat.png" id="1_rrxvj"]
+[ext_resource type="Script" uid="uid://g5cuwryrgo1l" path="res://Scene/button_5.gd" id="2_c6fb4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cc8mb"]
+texture = ExtResource("1_rrxvj")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(32, 32, 96, 64)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_66a3x"]
+texture = ExtResource("1_rrxvj")
+region_rect = Rect2(32, 32, 96, 64)
+modulate_color = Color(1, 1, 1, 0.6039216)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6ui13"]
+texture = ExtResource("1_rrxvj")
+region_rect = Rect2(32, 32, 96, 64)
+modulate_color = Color(1, 1, 1, 0.80784315)
+
+[sub_resource type="SystemFont" id="SystemFont_ioh3e"]
+font_weight = 450
+
+[node name="MainMenu" type="Control" unique_id=1535153467]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1971728040]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2019479353]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 12
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=20688711]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Game BTW"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button3" type="Button" parent="MarginContainer/VBoxContainer" unique_id=104841772]
+custom_minimum_size = Vector2(240, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_cc8mb")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_66a3x")
+theme_override_styles/hover = SubResource("StyleBoxTexture_6ui13")
+text = "Start"
+
+[node name="Button4" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1602830625]
+custom_minimum_size = Vector2(240, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_cc8mb")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_66a3x")
+theme_override_styles/hover = SubResource("StyleBoxTexture_6ui13")
+text = "Option"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/VBoxContainer" unique_id=1073930073]
+custom_minimum_size = Vector2(240, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_rrxvj")
+region_rect = Rect2(128, 32, 96, 64)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Button5" type="Button" parent="MarginContainer/VBoxContainer/NinePatchRect" unique_id=263559867]
+custom_minimum_size = Vector2(240, 50)
+layout_mode = 0
+offset_right = 240.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_ioh3e")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_cc8mb")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_66a3x")
+theme_override_styles/hover = SubResource("StyleBoxTexture_6ui13")
+text = "Exit"
+flat = true
+script = ExtResource("2_c6fb4")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/NinePatchRect/Button5" to="MarginContainer/VBoxContainer/NinePatchRect/Button5" method="_on_pressed"]

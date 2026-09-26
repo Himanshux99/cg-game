@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://ccocxd54w4hmm"]
+
+[ext_resource type="Script" uid="uid://dm0p26bb52gcd" path="res://Script/levelDoor.gd" id="1_woxyl"]
+[ext_resource type="PackedScene" uid="uid://cnoga30nsruc2" path="res://Scene/InsideCafe.tscn" id="2_woxyl"]
+[ext_resource type="Texture2D" uid="uid://bfcc2egjbhcp7" path="res://Assets/gaay_assets/Building1.png" id="3_0etb7"]
+[ext_resource type="PackedScene" uid="uid://d2cst3bbenwx4" path="res://Interaction/Interaction Area/InteractionArea.tscn" id="4_gmwmh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3bgyl"]
+size = Vector2(27.666626, 42.666668)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6l360"]
+size = Vector2(22.00003, 26.499989)
+
+[node name="CafeDoor" type="StaticBody2D" unique_id=812334762]
+scale = Vector2(3, 3)
+script = ExtResource("1_woxyl")
+target_scene = ExtResource("2_woxyl")
+target_spawn_id = "Cafe Interior"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1691329952]
+texture = ExtResource("3_0etb7")
+region_enabled = true
+region_rect = Rect2(38, 123, 22, 38)
+
+[node name="InteractionArea" parent="." unique_id=36822850 instance=ExtResource("4_gmwmh")]
+action_name = "Enter CyberCafe"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=339583214]
+position = Vector2(-0.16662598, 14)
+shape = SubResource("RectangleShape2D_3bgyl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1327055623]
+position = Vector2(6.1035156e-05, -5.5833435)
+shape = SubResource("RectangleShape2D_6l360")

@@ -7,9 +7,6 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jnvth"]
 texture = SubResource("AtlasTexture_r3aiv")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u202f"]
-size = Vector2(38, 39)
-
 [node name="ComputerPuzzle" type="Control" unique_id=1354080789]
 layout_mode = 3
 anchors_preset = 15
@@ -46,6 +43,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = 7.0
+offset_right = -2.0
+offset_bottom = 7.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 40
@@ -61,11 +62,5 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_jnvth")
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="Panel/MarginContainer/Panel/Panel" unique_id=275728198]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Panel/MarginContainer/Panel/Panel/CharacterBody2D" unique_id=839884370]
-position = Vector2(20, 19.5)
-shape = SubResource("RectangleShape2D_u202f")
 
 [connection signal="pressed" from="Panel/Close_puzzle_button" to="." method="_on_close_puzzle_button_pressed"]

@@ -1,7 +1,13 @@
 [gd_scene format=3 uid="uid://b51fknuspfqbl"]
 
 [ext_resource type="Script" uid="uid://65le1rxxkh3a" path="res://Script/Player.gd" id="1_kelma"]
+[ext_resource type="Shader" uid="uid://dclj43026kw4e" path="res://Script/SilhouetteSpriteShader.gdshader" id="2_58ae2"]
 [ext_resource type="Texture2D" uid="uid://l53nv8jijlpt" path="res://Assets/Cute_Fantasy_Free/Player/Player.png" id="2_y8w33"]
+[ext_resource type="PackedScene" uid="uid://cslclw6oaflfu" path="res://Scene/ui.tscn" id="3_xa75v"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3bgyl"]
+shader = ExtResource("2_58ae2")
+shader_parameter/silhouette_color = Color(0, 0.7, 1, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y8w33"]
 atlas = ExtResource("2_y8w33")
@@ -364,6 +370,15 @@ scale = Vector2(3, 3)
 collision_layer = 3
 script = ExtResource("1_kelma")
 
+[node name="SilhouetteSprite" type="AnimatedSprite2D" parent="." unique_id=883349972]
+visible = false
+z_index = 400
+texture_filter = 1
+material = SubResource("ShaderMaterial_3bgyl")
+sprite_frames = SubResource("SpriteFrames_ij4jb")
+animation = &"idle_down"
+frame_progress = 0.38223568
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=542654612]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_ij4jb")
@@ -374,4 +389,4 @@ frame_progress = 0.38223568
 position = Vector2(-0.33333334, 2)
 shape = SubResource("CapsuleShape2D_j47wa")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=796510304]
+[node name="UI" parent="." unique_id=1583945617 instance=ExtResource("3_xa75v")]

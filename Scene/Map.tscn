@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://b51fknuspfqbl" path="res://Scene/player.tscn" id="1_t4xoi"]
 [ext_resource type="Texture2D" uid="uid://gncgwhuklmst" path="res://Assets/Modern tiles_Free/Interiors_free/32x32/Interiors_free_32x32.png" id="2_j0m1p"]
 [ext_resource type="Texture2D" uid="uid://cdbj5418m8h5m" path="res://Assets/Modern tiles_Free/Interiors_free/32x32/Room_Builder_free_32x32.png" id="3_6i788"]
-[ext_resource type="PackedScene" uid="uid://cslclw6oaflfu" path="res://Scene/ui.tscn" id="3_vwxat"]
 [ext_resource type="PackedScene" uid="uid://b6cuwybksdxtb" path="res://Scene/Interactables/Desk.tscn" id="6_6i788"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vwxat"]
@@ -4111,6 +4110,9 @@ scale = Vector2(1.5, 1.5)
 tile_map_data = PackedByteArray("AAAAAP7/AgABABMAAAAAAP//AgABABQAAAABAP7/AgABABMAAAABAP//AgABABQAAAACAP7/AgABABMAAAACAP//AgABABQAAAADAP7/AgABABMAAAADAP//AgABABQAAAAEAP7/AgABABMAAAAEAP//AgABABQAAAAFAP7/AgABABMAAAAFAP//AgABABQAAAAGAP7/AgABABMAAAAGAP//AgABABQAAAAHAP7/AgABABMAAAAHAP//AgABABQAAAAIAP7/AgABABMAAAAIAP//AgABABQAAAAJAP7/AgABABMAAAAJAP//AgABABQAAAAKAP7/AgABABMAAAAKAP//AgABABQAAAALAP7/AgABABMAAAALAP//AgABABQAAAAMAP7/AgABABMAAAAMAP//AgABABQAAAANAP7/AgABABMAAAANAP//AgABABQAAAAOAP7/AgABABMAAAAOAP//AgABABQAAAAPAP7/AgABABMAAAAPAP//AgABABQAAAAQAP7/AgABABMAAAAQAP//AgABABQAAAARAP7/AgABABMAAAARAP//AgABABQAAAASAP7/AgABABMAAAASAP//AgABABQAAAATAP7/AgABABMAAAATAP//AgABABQAAAAUAP7/AgABABMAAAAUAP//AgABABQAAAAVAP7/AgABABMAAAAVAP//AgABABQAAAAWAP7/AgABABMAAAAWAP//AgABABQAAAAXAP7/AgABABMAAAAXAP//AgABABQAAAAYAP7/AgABABMAAAAYAP//AgABABQAAAAZAP7/AgABABMAAAAZAP//AgABABQAAAAaAP7/AgABABMAAAAaAP//AgABABQAAAAbAP7/AgABABMAAAAbAP//AgABABQAAAAcAP7/AgABABMAAAAcAP//AgABABQAAAAdAP7/AgABABMAAAAdAP//AgABABQAAAAeAP7/AgABABMAAAAeAP//AgABABQAAAAfAP7/AgABABMAAAAfAP//AgABABQAAAAgAP7/AgABABMAAAAgAP//AgABABQAAAAhAP7/AgABABMAAAAhAP//AgABABQAAAAiAP7/AgABABMAAAAiAP//AgABABQAAAA=")
 tile_set = SubResource("TileSet_4gagr")
 
+[node name="StaticBody2D" parent="." unique_id=1471419889 instance=ExtResource("6_6i788")]
+position = Vector2(170.01962, 39.281754)
+
 [node name="Player" parent="." unique_id=1384558383 instance=ExtResource("1_t4xoi")]
 y_sort_enabled = true
 position = Vector2(563, 310)
@@ -4118,8 +4120,3 @@ position = Vector2(563, 310)
 [node name="Camera2D2" type="Camera2D" parent="Player" unique_id=227626940]
 process_callback = 0
 position_smoothing_enabled = true
-
-[node name="UI" parent="." unique_id=1583945617 instance=ExtResource("3_vwxat")]
-
-[node name="StaticBody2D" parent="." unique_id=1471419889 instance=ExtResource("6_6i788")]
-position = Vector2(170.01962, 39.281754)

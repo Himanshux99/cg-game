@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://cnoga30nsruc2"]
+
+[ext_resource type="Script" uid="uid://ub303jqc5fhm" path="res://Script/inside_cafe.gd" id="1_hkawa"]
+[ext_resource type="Texture2D" uid="uid://dqovcu70gyh3l" path="res://Assets/CafeInterior.jpeg" id="1_sdqur"]
+[ext_resource type="Texture2D" uid="uid://b2002k3i8ek42" path="res://Assets/OnlyDesk.png" id="2_eeeqb"]
+[ext_resource type="PackedScene" uid="uid://b51fknuspfqbl" path="res://Scene/player.tscn" id="2_fb6aa"]
+[ext_resource type="PackedScene" uid="uid://cjj65t0hjo14f" path="res://Scene/Puzzles/Entrance_Quiz.tscn" id="2_t55nw"]
+[ext_resource type="Script" uid="uid://c6s1dbjfxma4u" path="res://Script/interactions/spawn_point.gd" id="3_fb6aa"]
+[ext_resource type="PackedScene" uid="uid://d2cst3bbenwx4" path="res://Interaction/Interaction Area/InteractionArea.tscn" id="3_l3otj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6l360"]
+radius = 109.44404
+
+[node name="Node2D" type="Node2D" unique_id=886686153]
+script = ExtResource("1_hkawa")
+puzzle_scene = ExtResource("2_t55nw")
+
+[node name="BG" type="Sprite2D" parent="." unique_id=1619589088]
+scale = Vector2(0.41473243, 0.41473243)
+texture = ExtResource("1_sdqur")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="BG" unique_id=529947830]
+scale = Vector2(2.4111934, 2.4111934)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BG/StaticBody2D" unique_id=428759875]
+polygon = PackedVector2Array(-56, 297, -57, 261, -284, 263, -287, 249, -299, 248, -299, 212, -229, 212, -197, 181, -195, 169, -195, 111, -215, 112, -218, 127, -220, 148, -241, 134, -262, 146, -271, 160, -274, 174, -299, 175, -300, 11, -300, -14, -206, -14, -206, -108, -289, -108, -301, -107, -300, -212, -277, -212, -277, -179, -245, -179, -245, -213, -219, -213, -219, -185, -179, -182, -179, -208, 84, -208, 84, -183, 160, -183, 159, -205, 209, -205, 209, -181, 267, -181, 269, -207, 298, -207, 298, -136, 219, -135, 221, -65, 282, -60, 282, -46, 302, -46, 301, 118, 237, 115, 235, 172, 272, 174, 301, 176, 302, 249, 287, 249, 286, 264, 57, 265, 56, 298, -49, 298, -47, 335, 359, 329, 368, -393, -400, -383, -390, 393)
+
+[node name="deslCollision" type="CollisionPolygon2D" parent="BG/StaticBody2D" unique_id=429564281]
+polygon = PackedVector2Array(-24, 168, -24, 168, -134, 168, -134, 140, -163, 140, -163, 113, -152, 113, -138, 113, -138, 96, -115, 96, -115.00001, 86.00001, -106.000015, 87.00001, -97, 95, -82, 95, -82.000015, 95.00001, -74.000015, 95.00001, -74, 95, -61, 95, -51.000015, 86.00001, -42.000015, 87.00001, -42, 95, -21, 95, -21, 114, 1, 114, 1, 136, -21, 137, -21, 158)
+
+[node name="deslCollision2" type="CollisionPolygon2D" parent="BG/StaticBody2D" unique_id=797127230]
+position = Vector2(0.99996936, -113.99997)
+polygon = PackedVector2Array(-22.999939, 162.99998, -22.999939, 162.99998, -133.99994, 161.99998, -134, 140, -163, 140, -163, 113, -152, 113, -138, 113, -138, 96, -115, 96, -115.00001, 86.00001, -106.000015, 87.00001, -97, 95, -82, 95, -82.000015, 95.00001, -74.000015, 95.00001, -74, 95, -61, 95, -51.000015, 86.00001, -42.000015, 87.00001, -42, 95, -21, 95, -21, 114, 1, 114, 1, 136, -21, 137, -21, 158)
+
+[node name="deslCollision3" type="CollisionPolygon2D" parent="BG/StaticBody2D" unique_id=771640228]
+position = Vector2(-3.0517578e-05, -236.99995)
+polygon = PackedVector2Array(-24, 168, -24, 168, -134, 168, -134, 140, -163, 140, -163, 113, -152, 113, -138, 113, -138, 96, -115, 96, -115.00001, 86.00001, -106.000015, 87.00001, -97, 95, -82, 95, -82.000015, 95.00001, -74.000015, 95.00001, -74, 95, -61, 95, -51.000015, 86.00001, -42.000015, 87.00001, -42, 95, -21, 95, -21, 114, 1, 114, 1, 136, -21, 137, -21, 158)
+
+[node name="deslCollision4" type="CollisionPolygon2D" parent="BG/StaticBody2D" unique_id=2056236600]
+position = Vector2(170.99995, -235.99995)
+polygon = PackedVector2Array(-24, 168, -24, 168, -134, 168, -134, 140, -163, 140, -163, 113, -152, 113, -138, 113, -138, 96, -115, 96, -115.00001, 86.00001, -106.000015, 87.00001, -97, 95, -82, 95, -82.000015, 95.00001, -74.000015, 95.00001, -74, 95, -61, 95, -51.000015, 86.00001, -42.000015, 87.00001, -42, 95, -21, 95, -21, 114, 1, 114, 1, 136, -21, 137, -21, 158)
+
+[node name="deslCollision6" type="CollisionPolygon2D" parent="BG/StaticBody2D" unique_id=203110506]
+position = Vector2(168.99995, 1.5258789e-05)
+polygon = PackedVector2Array(-24, 168, -24, 168, -134, 168, -134, 140, -163, 140, -163, 113, -152, 113, -138, 113, -138, 96, -115, 96, -115.00001, 86.00001, -106.000015, 87.00001, -97, 95, -82, 95, -82.000015, 95.00001, -74.000015, 95.00001, -74, 95, -61, 95, -51.000015, 86.00001, -42.000015, 87.00001, -42, 95, -21, 95, -21, 114, 1, 114, 1, 136, -21, 137, -21, 158)
+
+[node name="deslCollision5" type="CollisionPolygon2D" parent="BG/StaticBody2D" unique_id=644110743]
+position = Vector2(169.99995, -114.99997)
+polygon = PackedVector2Array(-24, 168, -24, 168, -134, 168, -134, 140, -163, 140, -163, 113, -152, 113, -138, 113, -138, 96, -115, 96, -115.00001, 86.00001, -106.000015, 87.00001, -97, 95, -82, 95, -82.000015, 95.00001, -74.000015, 95.00001, -74, 95, -61, 95, -51.000015, 86.00001, -42.000015, 87.00001, -42, 95, -21, 95, -21, 114, 1, 114, 1, 136, -21, 137, -21, 158)
+
+[node name="InteractionArea" parent="BG" unique_id=1724913369 instance=ExtResource("3_l3otj")]
+action_name = "Use"
+
+[node name="Sprite2D" type="Sprite2D" parent="BG/InteractionArea" unique_id=2048724910]
+position = Vector2(217.00745, 43.401485)
+scale = Vector2(0.9979324, 1.0173547)
+texture = ExtResource("2_eeeqb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BG/InteractionArea" unique_id=605092228]
+position = Vector2(270.0537, 60.27984)
+rotation = -0.2617994
+scale = Vector2(2.4111936, 2.4111936)
+shape = SubResource("CircleShape2D_6l360")
+
+[node name="Player" parent="." unique_id=1384558383 instance=ExtResource("2_fb6aa")]
+position = Vector2(0, 25.39)
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=931826526]
+position = Vector2(0, 278)
+script = ExtResource("3_fb6aa")
+spawn_id = "Cafe Interior"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=487030888]
+position = Vector2(-1.5258789e-05, 0)
+
+[connection signal="body_entered" from="BG/InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="BG/InteractionArea" to="." method="_on_interaction_area_body_exited"]

@@ -1,9 +1,9 @@
-extends Node2D
+extends CanvasLayer
 
 @onready var player = get_tree().get_first_node_in_group("Player")
 @onready var label: Label = $Label
 
-const base_text = "[E] to "
+const base_text = "Press [ ] to "
 
 var active_areas = []
 var can_interact = true
@@ -20,9 +20,6 @@ func _process(_delta: float) -> void:
 	if active_areas.size()>0 && can_interact:
 		active_areas.sort_custom(sort_by_distance)
 		label.text = base_text + active_areas[0].action_name
-		label.global_position = active_areas[0].global_position
-		label.global_position.y -= -36
-		label.global_position.x -= label.size.x/2 
 		label.show()
 	else:
 		label.hide() 

@@ -1,0 +1,8 @@
+[gd_resource type="Theme" format=3 uid="uid://cpt0f7jj2ifov"]
+
+[ext_resource type="FontFile" uid="uid://73625fto23s2" path="res://Assets/font/PressStart2P-Regular.ttf" id="1_hxewf"]
+
+[resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/fonts/font = ExtResource("1_hxewf")
+Label/fonts/font = ExtResource("1_hxewf")

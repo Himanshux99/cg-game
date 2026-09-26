@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="CG Game"
-run/main_scene="uid://difsnv6oiiwsq"
+run/main_scene="uid://cmxnsspbm7uci"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
@@ -21,12 +21,13 @@ InteractionManager="*uid://dkvxl3uq5uqua"
 PuzzleManager="*uid://cs1bjoon7udib"
 SaveManager="*uid://ddxpokvpagg50"
 GameManager="*uid://fa1seok31cvh"
+SceneManager="*res://Managers/SceneManager.gd"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
 [dotnet]
@@ -72,6 +73,10 @@ interact={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"location":0,"echo":false,"script":null)
 ]
 }
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
 
 [layer_names]
 

@@ -2,12 +2,20 @@
 
 [ext_resource type="Script" uid="uid://rmtlrmbbi3il" path="res://Script/ui.gd" id="1_bpjw8"]
 [ext_resource type="Script" uid="uid://8fi7k73fu5po" path="res://addons/virtual_joystick_DX/vjdx_core_script.gd" id="1_fyqef"]
+[ext_resource type="Texture2D" uid="uid://up5hmphhwxw7" path="res://Assets/UI/blue.png" id="3_lfpiq"]
+[ext_resource type="Texture2D" uid="uid://bjdp8yxjkd1ie" path="res://Assets/UI/Spritesheet_UI_Flat.png" id="3_ls17r"]
+[ext_resource type="Texture2D" uid="uid://doogpwb3w00bm" path="res://Assets/UI/Spritesheet_UI_Flat_Animated.png" id="4_urowa"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfpiq"]
-corner_radius_top_left = 60
-corner_radius_top_right = 65
-corner_radius_bottom_right = 67
-corner_radius_bottom_left = 63
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3bgyl"]
+texture = ExtResource("3_ls17r")
+region_rect = Rect2(384, 32, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3cm36"]
+texture = ExtResource("4_urowa")
+region_rect = Rect2(64, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_thkpk"]
+texture = ExtResource("3_lfpiq")
 
 [node name="UI" type="CanvasLayer" unique_id=1583945617]
 script = ExtResource("1_bpjw8")
@@ -46,19 +54,41 @@ Diagonals = null
 metadata/_custom_type_script = "uid://8fi7k73fu5po"
 
 [node name="Interact_button" type="Button" parent="." unique_id=1512447732]
-offset_left = 975.0
-offset_top = 536.0
-offset_right = 1169.0
-offset_bottom = 638.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_lfpiq")
-metadata/_edit_use_anchors_ = true
+custom_minimum_size = Vector2(100, 100)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -194.0
+offset_top = -102.0
+offset_right = -144.0
+offset_bottom = -52.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_3bgyl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_3cm36")
+theme_override_styles/hover = SubResource("StyleBoxTexture_3bgyl")
 
 [node name="Save" type="Button" parent="." unique_id=550239114]
-offset_left = 990.0
-offset_top = 388.0
-offset_right = 1143.0
-offset_bottom = 482.0
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -280.0
+offset_top = -319.42
+offset_right = -127.00049
+offset_bottom = -225.42126
+grow_horizontal = 0
+grow_vertical = 0
+offset_transform_enabled = true
 theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxTexture_thkpk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_thkpk")
+theme_override_styles/hover = SubResource("StyleBoxTexture_thkpk")
 text = "Save"
 
 [connection signal="pressed" from="Interact_button" to="." method="_on_interact_button_pressed"]
