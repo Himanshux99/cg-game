@@ -7,9 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://cjj65t0hjo14f" path="res://Scene/Puzzles/Entrance_Quiz.tscn" id="2_t55nw"]
 [ext_resource type="Script" uid="uid://c6s1dbjfxma4u" path="res://Script/interactions/spawn_point.gd" id="3_fb6aa"]
 [ext_resource type="PackedScene" uid="uid://d2cst3bbenwx4" path="res://Interaction/Interaction Area/InteractionArea.tscn" id="3_l3otj"]
+[ext_resource type="PackedScene" uid="uid://bath7m8b8faa7" path="res://Scene/levelDoor.tscn" id="8_jxdgf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6l360"]
 radius = 109.44404
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t55nw"]
+size = Vector2(110, 35)
 
 [node name="Node2D" type="Node2D" unique_id=886686153]
 script = ExtResource("1_hkawa")
@@ -66,12 +70,23 @@ shape = SubResource("CircleShape2D_6l360")
 position = Vector2(0, 25.39)
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=931826526]
-position = Vector2(0, 278)
+position = Vector2(-1, 241)
 script = ExtResource("3_fb6aa")
 spawn_id = "Cafe Interior"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=487030888]
 position = Vector2(-1.5258789e-05, 0)
+
+[node name="InteractionArea" parent="." unique_id=169360854 instance=ExtResource("3_l3otj")]
+position = Vector2(0, 314)
+action_name = "Go Out"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1425335116]
+position = Vector2(1, -16.5)
+shape = SubResource("RectangleShape2D_t55nw")
+
+[node name="LevelDoor" parent="InteractionArea" unique_id=1697513737 instance=ExtResource("8_jxdgf")]
+is_return_door = true
 
 [connection signal="body_entered" from="BG/InteractionArea" to="." method="_on_interaction_area_body_entered"]
 [connection signal="body_exited" from="BG/InteractionArea" to="." method="_on_interaction_area_body_exited"]

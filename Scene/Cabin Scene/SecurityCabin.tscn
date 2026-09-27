@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cs75st64h1wjq"]
 
+[ext_resource type="Script" uid="uid://vxw6ik8g33j8" path="res://Script/security_cabin.gd" id="1_08jf4"]
 [ext_resource type="Texture2D" uid="uid://s8s5hk74m3p3" path="res://Assets/gaay_assets/cabin.png" id="1_sptfs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3bgyl"]
@@ -8,8 +9,13 @@ size = Vector2(52, 58)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6l360"]
 size = Vector2(11, 20)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_3bgyl"]
+radius = 40.023605
+
 [node name="SecurityCabin" type="Node2D" unique_id=319077443]
 scale = Vector2(3, 3)
+script = ExtResource("1_08jf4")
+dialogue_file = "res://Script/Dialogues/securityConvo.json"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1933412284]
 texture = ExtResource("1_sptfs")
@@ -23,3 +29,11 @@ shape = SubResource("RectangleShape2D_3bgyl")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=179652487]
 position = Vector2(28, 15)
 shape = SubResource("RectangleShape2D_6l360")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2126914674]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=38878056]
+position = Vector2(-9.666667, 20.666668)
+shape = SubResource("CircleShape2D_3bgyl")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

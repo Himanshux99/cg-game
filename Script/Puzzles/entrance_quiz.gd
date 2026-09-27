@@ -117,8 +117,36 @@ func _ready():
 	result_screen.visible = false
 	# Set up status panel textures
 	setup_status_styles()
-	# Start with Quiz 1
-	load_quiz(0)
+
+	load_saved_progress()
+
+	if not player_answers.has(-1):
+		# Every question already has a saved answer: show the result screen
+		finish_quiz()
+	else:
+		# Resume on the saved question
+		load_quiz(current_quiz)
+
+
+# --------------------------------------------------
+# SAVE / LOAD PROGRESS
+# --------------------------------------------------
+
+func save_progress():
+	GameManager.object_changed(puzzle_id, {
+		"current_quiz": current_quiz,
+		"player_answers": player_answers
+	})
+
+
+func load_saved_progress():
+	var state = SaveManager.get_object_state(puzzle_id)
+	if state.has("player_answers"):
+		# Duplicate so editing player_answers doesn't silently mutate SaveManager's
+		# stored data before save_progress() is actually called
+		player_answers = (state["player_answers"] as Array).duplicate()
+	if state.has("current_quiz"):
+		current_quiz = clampi(state["current_quiz"], 0, quizzes.size() - 1)
 
 
 # --------------------------------------------------
@@ -180,6 +208,7 @@ func _on_option_selected(index: int):
 	update_option_visuals()
 	update_status_panels()
 	update_save_next_button()
+	save_progress()
 
 
 # --------------------------------------------------
@@ -232,6 +261,7 @@ func _on_save_next_pressed():
 	else:
 		# Move to next quiz
 		load_quiz(current_quiz + 1)
+		save_progress()
 
 
 # --------------------------------------------------
@@ -244,16 +274,13 @@ func _on_prev_pressed():
 		player_answers[current_quiz] = selected_option
 		# Go back
 		load_quiz(current_quiz - 1)
+		save_progress()
 
 
 # --------------------------------------------------
 # FINISH
 # --------------------------------------------------
-
-# --------------------------------------------------
-# FINISH
-# --------------------------------------------------
-
+   
 func finish_quiz():
 	var score := 0
 	for i in range(quizzes.size()):
@@ -304,8 +331,14 @@ func _on_retake_submit_pressed():
 		player_answers = [-1, -1, -1, -1]
 		current_quiz = 0
 		selected_option = -1
-		
+		save_progress()
+
 		# Return back to the quiz interface
 		quiz_container.visible = true
 		result_screen.visible = false
 		load_quiz(0)
+
+
+func _on_close_button_pressed() -> void:
+	save_progress()
+	PuzzleManager.close_puzzle()

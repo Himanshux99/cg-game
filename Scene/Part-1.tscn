@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://b1f2by5gnwivo" path="res://Assets/gaay_assets/Light Pole.png" id="10_mkos1"]
 [ext_resource type="Texture2D" uid="uid://dynspmjm0pcca" path="res://Assets/gaay_assets/Bush 2 - ORANGE.png" id="14_w1ktw"]
 [ext_resource type="PackedScene" uid="uid://ccocxd54w4hmm" path="res://Scene/Interactables/cafe_door.tscn" id="21_cl5ty"]
-[ext_resource type="PackedScene" uid="uid://cs75st64h1wjq" path="res://Scene/Interactables/SecurityCabin.tscn" id="22_r0h4p"]
+[ext_resource type="PackedScene" uid="uid://cs75st64h1wjq" path="res://Scene/Cabin Scene/SecurityCabin.tscn" id="22_r0h4p"]
 [ext_resource type="Script" uid="uid://c6s1dbjfxma4u" path="res://Script/interactions/spawn_point.gd" id="24_bcho1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7xqwh"]
@@ -4337,11 +4337,17 @@ tile_set = SubResource("TileSet_ktv8x")
 [node name="CafeDoor" parent="." unique_id=812334762 instance=ExtResource("21_cl5ty")]
 position = Vector2(-1779, -541)
 
+[node name="CafeGateSpawn" type="Marker2D" parent="." unique_id=1697518001]
+position = Vector2(-1779, -451)
+script = ExtResource("24_bcho1")
+spawn_id = "Cafe Gate"
+
 [node name="SecurityCabin" parent="." unique_id=319077443 instance=ExtResource("22_r0h4p")]
 position = Vector2(-921.00006, -771.00006)
 
 [node name="Player" parent="." unique_id=1384558383 instance=ExtResource("1_6ggyu")]
 position = Vector2(-1602, -354)
+scale = Vector2(4, 4)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=863980240]
 limit_left = -1973

@@ -22,6 +22,24 @@ func save_game():
 	print("Game Saved")
 	file.close()
 
+func clear_save():
+	if FileAccess.file_exists(SAVE_PATH):
+		DirAccess.remove_absolute(SAVE_PATH)
+
+	save_data = {
+		"player": {
+			"position": {
+				"x" : 0.0,
+				"y" : 0.0
+			}
+		},
+
+		"puzzles": {},
+
+		"objects": {}
+	}
+	print("Save Deleted")
+
 func load_game(player: Node2D):
 	if not FileAccess.file_exists(SAVE_PATH):
 		return

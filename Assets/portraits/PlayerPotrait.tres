@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://bfafgxwst4tbf"]
+
+[ext_resource type="Texture2D" uid="uid://l53nv8jijlpt" path="res://Assets/Cute_Fantasy_Free/Player/Player.png" id="1_usiyd"]
+
+[resource]
+atlas = ExtResource("1_usiyd")
+region = Rect2(9, 5, 13, 15)

@@ -722,3 +722,5 @@ theme = ExtResource("3_tt6u5")
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxTexture_g8pe8")
 text = "Retake Quiz"
+
+[connection signal="pressed" from="AspectRatioContainer/Panel/CloseButton" to="." method="_on_close_button_pressed"]

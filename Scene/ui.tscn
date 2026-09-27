@@ -2,25 +2,55 @@
 
 [ext_resource type="Script" uid="uid://rmtlrmbbi3il" path="res://Script/ui.gd" id="1_bpjw8"]
 [ext_resource type="Script" uid="uid://8fi7k73fu5po" path="res://addons/virtual_joystick_DX/vjdx_core_script.gd" id="1_fyqef"]
-[ext_resource type="Texture2D" uid="uid://up5hmphhwxw7" path="res://Assets/UI/blue.png" id="3_lfpiq"]
-[ext_resource type="Texture2D" uid="uid://bjdp8yxjkd1ie" path="res://Assets/UI/Spritesheet_UI_Flat.png" id="3_ls17r"]
-[ext_resource type="Texture2D" uid="uid://doogpwb3w00bm" path="res://Assets/UI/Spritesheet_UI_Flat_Animated.png" id="4_urowa"]
+[ext_resource type="Texture2D" uid="uid://bnrjrktqqwycv" path="res://Assets/UI/button_round_line.png" id="3_d0mn4"]
+[ext_resource type="Texture2D" uid="uid://bri6cckkbvh2e" path="res://Assets/UI/icon_circle.png" id="4_p1i6o"]
+[ext_resource type="Texture2D" uid="uid://d3g6gdvovwgxs" path="res://Assets/UI/gear.png" id="7_mqc2b"]
+[ext_resource type="Texture2D" uid="uid://dknkf360720np" path="res://Assets/UI/save.png" id="8_bft37"]
+[ext_resource type="Texture2D" uid="uid://da3tnmomehxl1" path="res://Assets/UI/button_square_depth_flat.png" id="8_d0mn4"]
+[ext_resource type="Texture2D" uid="uid://le5osxxoxhb3" path="res://Assets/UI/button_round_depth_flat.png" id="8_p1i6o"]
+[ext_resource type="Texture2D" uid="uid://d0i0we4bgdwcw" path="res://Assets/UI/icon_search.png" id="9_vacr6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ex3h0"]
+texture = ExtResource("8_d0mn4")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mqc2b"]
+load_path = "res://.godot/imported/gear.png-12f1faf7ecafe454972c6403792ca576.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6l360"]
+texture = SubResource("CompressedTexture2D_mqc2b")
+region_rect = Rect2(1, 3, 100, 100)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vacr6"]
+texture = ExtResource("7_mqc2b")
+region_rect = Rect2(1, 3, 100, 100)
+modulate_color = Color(1, 1, 1, 0.5803922)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bft37"]
+texture = ExtResource("8_bft37")
+region_rect = Rect2(0, 2, 100, 100)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p1i6o"]
+texture = ExtResource("8_bft37")
+region_rect = Rect2(0, 2, 100, 100)
+modulate_color = Color(1, 1, 1, 0.7058824)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_47hxl"]
+texture = ExtResource("8_p1i6o")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3bgyl"]
-texture = ExtResource("3_ls17r")
-region_rect = Rect2(384, 32, 32, 32)
+texture = ExtResource("9_vacr6")
+region_rect = Rect2(0, 0, 96, 96)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3cm36"]
-texture = ExtResource("4_urowa")
-region_rect = Rect2(64, 0, 32, 32)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d0mn4"]
+texture = ExtResource("9_vacr6")
+region_rect = Rect2(0, 0, 96, 96)
+modulate_color = Color(1, 1, 1, 0.6431373)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_thkpk"]
-texture = ExtResource("3_lfpiq")
-
-[node name="UI" type="CanvasLayer" unique_id=1583945617]
+[node name="UI" type="CanvasLayer" unique_id=1583945617 groups=["MobileControlUi"]]
 script = ExtResource("1_bpjw8")
 
 [node name="VirtualJoystickDX" type="Control" parent="." unique_id=1996110404]
+texture_filter = 2
 custom_minimum_size = Vector2(72, 72)
 layout_mode = 3
 anchors_preset = 2
@@ -48,48 +78,103 @@ region_y = 334.0
 region_w = 621.0
 region_h = 386.0
 "Colors - D-Pad" = null
+tex_joystick_base = ExtResource("3_d0mn4")
+tex_joystick_thumb = ExtResource("4_p1i6o")
 "Textures - D-Pad" = null
 Cardinals = null
 Diagonals = null
 metadata/_custom_type_script = "uid://8fi7k73fu5po"
 
-[node name="Interact_button" type="Button" parent="." unique_id=1512447732]
-custom_minimum_size = Vector2(100, 100)
+[node name="SettingButtonPanel" type="Panel" parent="." unique_id=15709467]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -117.0
+offset_top = 27.0
+offset_right = -29.0
+offset_bottom = 115.0
+grow_horizontal = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_ex3h0")
+
+[node name="SettingButton" type="Button" parent="SettingButtonPanel" unique_id=1048373325]
+texture_filter = 6
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_6l360")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vacr6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_6l360")
+
+[node name="SavePanel" type="Panel" parent="." unique_id=1533146517]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -225.0
+offset_top = 28.0
+offset_right = -137.0
+offset_bottom = 116.0
+grow_horizontal = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_ex3h0")
+
+[node name="SaveButton" type="Button" parent="SavePanel" unique_id=1834734463]
+texture_filter = 6
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_bft37")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_p1i6o")
+theme_override_styles/hover = SubResource("StyleBoxTexture_bft37")
+
+[node name="Panel" type="Panel" parent="." unique_id=929046320]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -194.0
-offset_top = -102.0
-offset_right = -144.0
-offset_bottom = -52.0
+offset_left = -210.0
+offset_top = -164.0
+offset_right = -100.0
+offset_bottom = -54.0
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_47hxl")
+
+[node name="Interact_button" type="Button" parent="Panel" unique_id=1512447732]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -31.0
+offset_right = 35.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/normal = SubResource("StyleBoxTexture_3bgyl")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_3cm36")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_d0mn4")
 theme_override_styles/hover = SubResource("StyleBoxTexture_3bgyl")
 
-[node name="Save" type="Button" parent="." unique_id=550239114]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -280.0
-offset_top = -319.42
-offset_right = -127.00049
-offset_bottom = -225.42126
-grow_horizontal = 0
-grow_vertical = 0
-offset_transform_enabled = true
-theme_override_font_sizes/font_size = 42
-theme_override_styles/normal = SubResource("StyleBoxTexture_thkpk")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_thkpk")
-theme_override_styles/hover = SubResource("StyleBoxTexture_thkpk")
-text = "Save"
-
-[connection signal="pressed" from="Interact_button" to="." method="_on_interact_button_pressed"]
-[connection signal="pressed" from="Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="SettingButtonPanel/SettingButton" to="." method="_on_setting_button_pressed"]
+[connection signal="pressed" from="SavePanel/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="Panel/Interact_button" to="." method="_on_interact_button_pressed"]

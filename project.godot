@@ -22,6 +22,8 @@ PuzzleManager="*uid://cs1bjoon7udib"
 SaveManager="*uid://ddxpokvpagg50"
 GameManager="*uid://fa1seok31cvh"
 SceneManager="*res://Managers/SceneManager.gd"
+Dialogue="*uid://bln61ikuy0w4b"
+UIManager="*res://Managers/UIManager.gd"
 
 [display]
 
@@ -93,3 +95,4 @@ textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

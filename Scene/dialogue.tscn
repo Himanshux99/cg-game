@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://bln61ikuy0w4b"]
+
+[ext_resource type="Script" uid="uid://cp828km3m6gq7" path="res://Script/dialogue.gd" id="1_ve4bg"]
+[ext_resource type="Texture2D" uid="uid://bfafgxwst4tbf" path="res://Assets/portraits/PlayerPotrait.tres" id="2_4wkfl"]
+[ext_resource type="Texture2D" uid="uid://bjdp8yxjkd1ie" path="res://Assets/UI/Spritesheet_UI_Flat.png" id="3_k6gw1"]
+[ext_resource type="Theme" uid="uid://cpt0f7jj2ifov" path="res://GlobalTheme.tres" id="4_4wkfl"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ve4bg"]
+texture = ExtResource("3_k6gw1")
+region_rect = Rect2(583, 168, 17, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4wkfl"]
+texture = ExtResource("3_k6gw1")
+region_rect = Rect2(583, 168, 17, 16)
+modulate_color = Color(1, 1, 1, 0.69803923)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wkfqg"]
+load_path = "res://.godot/imported/Spritesheet_UI_Flat.png-a710a7de4ec48254c377f9887132cd19.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k6gw1"]
+texture = SubResource("CompressedTexture2D_wkfqg")
+region_rect = Rect2(583, 168, 17, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4wkfl"]
+load_path = "res://.godot/imported/Spritesheet_UI_Flat.png-a710a7de4ec48254c377f9887132cd19.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wkfqg"]
+texture = SubResource("CompressedTexture2D_4wkfl")
+region_rect = Rect2(583, 168, 17, 16)
+modulate_color = Color(1, 1, 1, 0.6745098)
+
+[node name="dialogue" type="CanvasLayer" unique_id=1963390773]
+layer = 10
+script = ExtResource("1_ve4bg")
+
+[node name="Control" type="Control" parent="." unique_id=1931146154]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -360.0
+offset_right = -640.0
+offset_bottom = -360.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CharSprite" type="TextureRect" parent="Control" unique_id=548254265]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 103.0
+offset_right = 375.0
+offset_bottom = 228.0
+texture = ExtResource("2_4wkfl")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control" unique_id=756981258]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 263.0
+offset_right = 1121.0
+offset_bottom = 537.0
+texture = ExtResource("3_k6gw1")
+region_rect = Rect2(288, 166, 64, 20)
+
+[node name="NameSprite" type="Sprite2D" parent="Control" unique_id=771868802]
+position = Vector2(319.00003, 263)
+scale = Vector2(4.828125, 4.35)
+texture = ExtResource("3_k6gw1")
+region_enabled = true
+region_rect = Rect2(288, 134, 64, 20)
+
+[node name="NameLabel" type="Label" parent="Control" unique_id=1976731835]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 0
+offset_left = 210.00002
+offset_top = 230.0
+offset_right = 433.0
+offset_bottom = 274.0
+theme = ExtResource("4_4wkfl")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 17
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="DialogueText" type="RichTextLabel" parent="Control" unique_id=1026399005]
+layout_mode = 0
+offset_left = 255.0
+offset_top = 323.0
+offset_right = 1080.0
+offset_bottom = 465.0
+theme = ExtResource("4_4wkfl")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 13
+theme_override_font_sizes/normal_font_size = 25
+text = "this is the page where the dialogues will be"
+
+[node name="NextButton" type="Button" parent="Control" unique_id=722991768]
+layout_mode = 0
+offset_left = 1110.0
+offset_top = 580.0
+offset_right = 1209.0
+offset_bottom = 679.0
+theme = ExtResource("4_4wkfl")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ve4bg")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_4wkfl")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ve4bg")
+
+[node name="PrevButton" type="Button" parent="Control" unique_id=1629456438]
+layout_mode = 0
+offset_left = 1088.0
+offset_top = 580.0
+offset_right = 1187.0
+offset_bottom = 679.0
+scale = Vector2(-1, 1)
+theme = ExtResource("4_4wkfl")
+theme_override_styles/normal = SubResource("StyleBoxTexture_k6gw1")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_wkfqg")
+theme_override_styles/hover = SubResource("StyleBoxTexture_k6gw1")

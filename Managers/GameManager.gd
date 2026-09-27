@@ -29,6 +29,10 @@ func save_game():
 	SaveManager.save_game()
 
 
+func delete_save():
+	SaveManager.clear_save()
+
+
 func puzzle_solved(puzzle_id: String):
 	SaveManager.set_puzzle_solved(puzzle_id)
 	save_game()

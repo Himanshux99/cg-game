@@ -19,7 +19,6 @@ func _on_interact() -> void:
 		PuzzleManager.open_puzzle(puzzle_scene)
 
 
-
 func _on_interaction_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		# 1. Kill any existing tween first to clear old animations safely

@@ -1,0 +1,52 @@
+[
+  {
+	"name": "Security Guard",
+	"text": "Stop! You need an ID or an allotment form to enter the college.",
+	"sprite": "SecurityPotrait"
+  },
+  {
+	"name": "Player",
+	"text": "I'm here for admission. I was told to report to the college today.",
+	"sprite": "PlayerPotrait"
+  },
+  {
+	"name": "Security Guard",
+	"text": "I understand, but I can't let you in without an ID or the allotment form.",
+	"sprite": "SecurityPotrait"
+  },
+  {
+	"name": "Player",
+	"text": "I don't have either of them with me right now. Is there any other way I can enter?",
+	"sprite": "PlayerPotrait"
+  },
+  {
+	"name": "Security Guard",
+	"text": "No. You'll need to get your allotment form first.",
+	"sprite": "SecurityPotrait"
+  },
+  {
+	"name": "Player",
+	"text": "Where can I get the allotment form?",
+	"sprite": "PlayerPotrait"
+  },
+  {
+	"name": "Security Guard",
+	"text": "There's a cyber cafe nearby. They should be able to help you get a copy of your allotment form.",
+	"sprite": "SecurityPotrait"
+  },
+  {
+	"name": "Player",
+	"text": "Alright. I'll go to the cyber cafe and get the form.",
+	"sprite": "PlayerPotrait"
+  },
+  {
+	"name": "Security Guard",
+	"text": "Once you have it, come back here and show it to me. Then you can enter.",
+	"sprite": "SecurityPotrait"
+  },
+  {
+	"name": "Player",
+	"text": "Got it. I'll be back with the allotment form.",
+	"sprite": "PlayerPotrait"
+  }
+]
