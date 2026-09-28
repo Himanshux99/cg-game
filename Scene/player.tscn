@@ -366,6 +366,7 @@ radius = 3.6666667
 height = 10.666667
 
 [node name="Player" type="CharacterBody2D" unique_id=1384558383 groups=["Player"]]
+y_sort_enabled = true
 scale = Vector2(3, 3)
 collision_layer = 3
 script = ExtResource("1_kelma")
