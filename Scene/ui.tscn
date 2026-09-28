@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://dknkf360720np" path="res://Assets/UI/save.png" id="8_bft37"]
 [ext_resource type="Texture2D" uid="uid://da3tnmomehxl1" path="res://Assets/UI/button_square_depth_flat.png" id="8_d0mn4"]
 [ext_resource type="Texture2D" uid="uid://le5osxxoxhb3" path="res://Assets/UI/button_round_depth_flat.png" id="8_p1i6o"]
+[ext_resource type="Texture2D" uid="uid://cveoybi8o1kkg" path="res://Assets/UI/trashcanOpen.png" id="8_vacr6"]
+[ext_resource type="Texture2D" uid="uid://cbxwd5yynsrwh" path="res://Assets/UI/return.png" id="9_p1i6o"]
 [ext_resource type="Texture2D" uid="uid://d0i0we4bgdwcw" path="res://Assets/UI/icon_search.png" id="9_vacr6"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ex3h0"]
@@ -33,6 +35,32 @@ region_rect = Rect2(0, 2, 100, 100)
 texture = ExtResource("8_bft37")
 region_rect = Rect2(0, 2, 100, 100)
 modulate_color = Color(1, 1, 1, 0.7058824)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rd0yu"]
+texture = ExtResource("8_vacr6")
+region_rect = Rect2(-7, -7, 114, 114)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wsdcc"]
+texture = ExtResource("8_vacr6")
+region_rect = Rect2(-7, -7, 114, 114)
+modulate_color = Color(1, 1, 1, 0.5686275)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l3tci"]
+texture = ExtResource("8_vacr6")
+region_rect = Rect2(-7, -7, 114, 114)
+modulate_color = Color(1, 1, 1, 0.5686275)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_466ek"]
+texture = ExtResource("9_p1i6o")
+region_rect = Rect2(2, 5, 100, 100)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_p1i6o"]
+load_path = "res://.godot/imported/return.png-a6f6a6ed31d538bd2bb4b4aa169acd9a.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tt1so"]
+texture = SubResource("CompressedTexture2D_p1i6o")
+region_rect = Rect2(2, 5, 100, 100)
+modulate_color = Color(1, 1, 1, 0.7019608)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_47hxl"]
 texture = ExtResource("8_p1i6o")
@@ -141,6 +169,62 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_bft37")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_p1i6o")
 theme_override_styles/hover = SubResource("StyleBoxTexture_bft37")
 
+[node name="DeletePanel" type="Panel" parent="." unique_id=193924040]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -335.0
+offset_top = 28.0
+offset_right = -247.0
+offset_bottom = 116.0
+grow_horizontal = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_ex3h0")
+
+[node name="DeleteButton" type="Button" parent="DeletePanel" unique_id=2126570803]
+texture_filter = 6
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_rd0yu")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_wsdcc")
+theme_override_styles/hover = SubResource("StyleBoxTexture_l3tci")
+
+[node name="RestartPanel" type="Panel" parent="." unique_id=2077176162]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -447.0
+offset_top = 27.0
+offset_right = -359.0
+offset_bottom = 115.0
+grow_horizontal = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_ex3h0")
+
+[node name="RestartButton" type="Button" parent="RestartPanel" unique_id=1111691956]
+texture_filter = 6
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_466ek")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_tt1so")
+theme_override_styles/hover = SubResource("StyleBoxTexture_466ek")
+
 [node name="Panel" type="Panel" parent="." unique_id=929046320]
 anchors_preset = 3
 anchor_left = 1.0
@@ -177,4 +261,6 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_3bgyl")
 
 [connection signal="pressed" from="SettingButtonPanel/SettingButton" to="." method="_on_setting_button_pressed"]
 [connection signal="pressed" from="SavePanel/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="DeletePanel/DeleteButton" to="." method="_on_delete_button_pressed"]
+[connection signal="pressed" from="RestartPanel/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="Panel/Interact_button" to="." method="_on_interact_button_pressed"]

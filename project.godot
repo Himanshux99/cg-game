@@ -44,6 +44,10 @@ enabled=PackedStringArray("res://addons/virtual_joystick_DX/plugin.cfg")
 
 Player=""
 
+[gui]
+
+theme/custom="uid://cpt0f7jj2ifov"
+
 [input]
 
 left={

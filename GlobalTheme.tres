@@ -2,8 +2,52 @@
 
 [ext_resource type="FontFile" uid="uid://73625fto23s2" path="res://Assets/font/PressStart2P-Regular.ttf" id="1_hxewf"]
 
+[sub_resource type="ImageTexture" id="ImageTexture_hxewf"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_fte40"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_qmtj8"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_wwiaa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7veiu"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3o75l"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
 [resource]
 Button/colors/font_color = Color(1, 1, 1, 1)
 Button/fonts/font = ExtResource("1_hxewf")
 Label/fonts/font = ExtResource("1_hxewf")
+LineEdit/colors/font_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_placeholder_color = Color(0.13755041, 0.13755077, 0.13755047, 0.6)
+LineEdit/colors/font_selected_color = Color(1, 1, 1, 1)
+LineEdit/font_sizes/font_size = 15
+LineEdit/fonts/font = ExtResource("1_hxewf")
+PopupMenu/colors/font_color = Color(0, 0, 0, 1)
+PopupMenu/colors/font_disabled_color = Color(0.4, 0.4, 0.4, 0.8)
+PopupMenu/colors/font_hover_color = Color(0, 0, 0, 1)
+PopupMenu/colors/font_separator_color = Color(0, 0, 0, 1)
+PopupMenu/constants/v_separation = 15
+PopupMenu/font_sizes/font_separator_size = 9
+PopupMenu/font_sizes/font_size = 11
+PopupMenu/font_sizes/title_font_size = 11
+PopupMenu/fonts/font = ExtResource("1_hxewf")
+PopupMenu/icons/radio_checked = SubResource("ImageTexture_hxewf")
+PopupMenu/icons/radio_checked_disabled = SubResource("ImageTexture_fte40")
+PopupMenu/icons/radio_unchecked = SubResource("ImageTexture_qmtj8")
+PopupMenu/icons/radio_unchecked_disabled = SubResource("ImageTexture_wwiaa")
+PopupMenu/styles/embedded_border = SubResource("StyleBoxFlat_7veiu")
+PopupMenu/styles/hover = SubResource("StyleBoxFlat_3o75l")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_3o75l")
 RichTextLabel/fonts/normal_font = ExtResource("1_hxewf")

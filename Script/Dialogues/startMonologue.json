@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Player",
+    "text": "So... there is the Vidya Institute of Technology.",
+    "sprite": "PlayerPotrait"
+  },
+  {
+    "name": "Player",
+    "text": "Guess this is where my college life officially begins.",
+    "sprite": "PlayerPotrait"
+  },
+  {
+    "name": "Player",
+    "text": "I should probably get inside and figure out where I'm supposed to go.",
+    "sprite": "PlayerPotrait"
+  },
+  {
+    "name": "Player",
+    "text": "Hopefully there's someone around who can point me in the right direction.",
+    "sprite": "PlayerPotrait"
+  },
+  {
+    "name": "Player",
+    "text": "Alright... new college, new place, new problems.",
+    "sprite": "PlayerPotrait"
+  },
+  {
+    "name": "Player",
+    "text": "How hard could it possibly be?",
+    "sprite": "PlayerPotrait"
+  }
+]

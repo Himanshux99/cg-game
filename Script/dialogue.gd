@@ -18,6 +18,7 @@ var current_line_index: int = 0
 
 func _ready() -> void:
 	visible = false
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	next_button.pressed.connect(_on_next_pressed)
 	prev_button.pressed.connect(_on_prev_pressed)
 
@@ -39,6 +40,7 @@ func start_dialogue_from_json(file_path: String) -> void:
 			current_dialogue_data = json.data
 			current_line_index = 0
 			visible = true
+			get_tree().paused = true
 			UIManager.set_group_visible("MobileControlUi", false)
 			emit_signal("dialogue_started")
 			show_line()
@@ -89,6 +91,7 @@ func _on_prev_pressed() -> void:
 
 func end_dialogue() -> void:
 	visible = false
+	get_tree().paused = false
 	UIManager.set_group_visible("MobileControlUi", true)
 	emit_signal("dialogue_ended")
 	current_dialogue_data.clear()

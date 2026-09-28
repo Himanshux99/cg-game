@@ -69,13 +69,15 @@ shape = SubResource("CircleShape2D_6l360")
 [node name="Player" parent="." unique_id=1384558383 instance=ExtResource("2_fb6aa")]
 position = Vector2(0, 25.39)
 
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=487030888]
+position = Vector2(-5.086263e-06, -8.463333)
+scale = Vector2(0.33333334, 0.33333334)
+zoom = Vector2(1.7, 1.7)
+
 [node name="Marker2D" type="Marker2D" parent="." unique_id=931826526]
 position = Vector2(-1, 241)
 script = ExtResource("3_fb6aa")
 spawn_id = "Cafe Interior"
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=487030888]
-position = Vector2(-1.5258789e-05, 0)
 
 [node name="InteractionArea" parent="." unique_id=169360854 instance=ExtResource("3_l3otj")]
 position = Vector2(0, 314)

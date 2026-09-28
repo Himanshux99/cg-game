@@ -28,3 +28,9 @@ func consume_pending_spawn_id() -> String:
 	var id = _pending_spawn_id
 	_pending_spawn_id = ""
 	return id
+
+
+func reset() -> void:
+	_pending_spawn_id = ""
+	_return_scene_path = ""
+	_return_spawn_id = ""

@@ -1,52 +1,47 @@
 [
   {
 	"name": "Security Guard",
-	"text": "Stop! You need an ID or an allotment form to enter the college.",
+	"text": "Hey! Where are you going? Where is your ID?",
 	"sprite": "SecurityPotrait"
   },
   {
 	"name": "Player",
-	"text": "I'm here for admission. I was told to report to the college today.",
+	"text": "Sir, I'm here to take admission in Vidhya Institute of Technology. I'm a new student.",
 	"sprite": "PlayerPotrait"
   },
   {
 	"name": "Security Guard",
-	"text": "I understand, but I can't let you in without an ID or the allotment form.",
+	"text": "Oh, you're here for admission? Then do you have your allotment form?",
 	"sprite": "SecurityPotrait"
   },
   {
 	"name": "Player",
-	"text": "I don't have either of them with me right now. Is there any other way I can enter?",
+	"text": "No, sir. I don't have the allotment form with me.",
 	"sprite": "PlayerPotrait"
   },
   {
 	"name": "Security Guard",
-	"text": "No. You'll need to get your allotment form first.",
+	"text": "Then you can't enter without it. You need the allotment form with college ID, VIT2208.",
 	"sprite": "SecurityPotrait"
   },
   {
 	"name": "Player",
-	"text": "Where can I get the allotment form?",
+	"text": "Okay, sir. Where can I get the allotment form?",
 	"sprite": "PlayerPotrait"
   },
   {
 	"name": "Security Guard",
-	"text": "There's a cyber cafe nearby. They should be able to help you get a copy of your allotment form.",
+	"text": "There's a cyber cafe nearby. Go there and get your allotment form.",
 	"sprite": "SecurityPotrait"
   },
   {
 	"name": "Player",
-	"text": "Alright. I'll go to the cyber cafe and get the form.",
+	"text": "Alright, sir. I'll get it and come back.",
 	"sprite": "PlayerPotrait"
   },
   {
 	"name": "Security Guard",
-	"text": "Once you have it, come back here and show it to me. Then you can enter.",
+	"text": "Good. Bring the form here and I'll let you in.",
 	"sprite": "SecurityPotrait"
-  },
-  {
-	"name": "Player",
-	"text": "Got it. I'll be back with the allotment form.",
-	"sprite": "PlayerPotrait"
   }
-]
+]	

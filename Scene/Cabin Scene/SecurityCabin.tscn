@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://vxw6ik8g33j8" path="res://Script/security_cabin.gd" id="1_08jf4"]
 [ext_resource type="Texture2D" uid="uid://s8s5hk74m3p3" path="res://Assets/gaay_assets/cabin.png" id="1_sptfs"]
+[ext_resource type="Texture2D" uid="uid://01ygnkbgfpud" path="res://Assets/Modern tiles_Free/Characters_free/Bob_idle_anim_16x16.png" id="3_hd8tl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3bgyl"]
 size = Vector2(52, 58)
@@ -12,12 +13,62 @@ size = Vector2(11, 20)
 [sub_resource type="CircleShape2D" id="CircleShape2D_3bgyl"]
 radius = 40.023605
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_2krjy"]
+atlas = ExtResource("3_hd8tl")
+region = Rect2(288, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4isx"]
+atlas = ExtResource("3_hd8tl")
+region = Rect2(304, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b57hd"]
+atlas = ExtResource("3_hd8tl")
+region = Rect2(320, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0iflk"]
+atlas = ExtResource("3_hd8tl")
+region = Rect2(336, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1eo4y"]
+atlas = ExtResource("3_hd8tl")
+region = Rect2(352, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xiqfo"]
+atlas = ExtResource("3_hd8tl")
+region = Rect2(368, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3bgyl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2krjy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4isx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b57hd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0iflk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1eo4y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xiqfo")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="SecurityCabin" type="Node2D" unique_id=319077443]
 scale = Vector2(3, 3)
 script = ExtResource("1_08jf4")
 dialogue_file = "res://Script/Dialogues/securityConvo.json"
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1933412284]
+[node name="Cabin" type="Sprite2D" parent="." unique_id=1933412284]
 texture = ExtResource("1_sptfs")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1427228724]
@@ -36,5 +87,12 @@ visible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=38878056]
 position = Vector2(-9.666667, 20.666668)
 shape = SubResource("CircleShape2D_3bgyl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1768495997]
+position = Vector2(48.666676, 15.666667)
+scale = Vector2(1.2, 1.2)
+sprite_frames = SubResource("SpriteFrames_3bgyl")
+autoplay = "default"
+frame_progress = 0.36619994
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
