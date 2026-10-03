@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dbmpu34gnrwil"]
+
+[ext_resource type="AudioStream" uid="uid://bq772l15kcnf2" path="res://Assets/Sound/The-Italian-Heist.ogg" id="1_kk108"]
+[ext_resource type="Script" uid="uid://m3d5owwo75fn" path="res://Managers/music_controller.gd" id="1_sgpix"]
+[ext_resource type="AudioStream" uid="uid://q8pk25p1mld8" path="res://Assets/Sound/mixkit-quest-game-interface-click-1139.ogg" id="3_sgpix"]
+
+[node name="MusicController" type="Node" unique_id=1866851135]
+script = ExtResource("1_sgpix")
+
+[node name="BGMPlayer" type="AudioStreamPlayer2D" parent="." unique_id=399534562]
+stream = ExtResource("1_kk108")
+autoplay = true
+
+[node name="SFXPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1669807724]
+stream = ExtResource("3_sgpix")
+volume_db = 4.411

@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="CG Game"
+config/name="Pendora"
 run/main_scene="uid://cmxnsspbm7uci"
 config/features=PackedStringArray("4.7", "Mobile")
-config/icon="res://icon.svg"
+config/icon="uid://bmkpt45df3wbi"
 
 [autoload]
 
@@ -24,6 +24,8 @@ GameManager="*uid://fa1seok31cvh"
 SceneManager="*res://Managers/SceneManager.gd"
 Dialogue="*uid://bln61ikuy0w4b"
 UIManager="*res://Managers/UIManager.gd"
+MusicController="*uid://dbmpu34gnrwil"
+ButtonFX="*res://Managers/ButtonFX.gd"
 
 [display]
 
@@ -43,6 +45,8 @@ enabled=PackedStringArray("res://addons/virtual_joystick_DX/plugin.cfg")
 [global_group]
 
 Player=""
+click_anim_panel="Panels whose buttons play the click scale animation (see ButtonFX)"
+no_click_anim=""
 
 [gui]
 

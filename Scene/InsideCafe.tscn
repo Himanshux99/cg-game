@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://c6s1dbjfxma4u" path="res://Script/interactions/spawn_point.gd" id="3_fb6aa"]
 [ext_resource type="PackedScene" uid="uid://d2cst3bbenwx4" path="res://Interaction/Interaction Area/InteractionArea.tscn" id="3_l3otj"]
 [ext_resource type="PackedScene" uid="uid://bath7m8b8faa7" path="res://Scene/levelDoor.tscn" id="8_jxdgf"]
+[ext_resource type="Script" uid="uid://dj1t7di1gx30x" path="res://Script/cafe_guy.gd" id="9_8jt2t"]
+[ext_resource type="Texture2D" uid="uid://vo8vhuegptdh" path="res://Assets/Modern tiles_Free/Characters_free/Alex_16x16.png" id="9_jxdgf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6l360"]
 radius = 109.44404
@@ -15,7 +17,60 @@ radius = 109.44404
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t55nw"]
 size = Vector2(110, 35)
 
-[node name="Node2D" type="Node2D" unique_id=886686153]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxdgf"]
+atlas = ExtResource("9_jxdgf")
+region = Rect2(0, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jt2t"]
+atlas = ExtResource("9_jxdgf")
+region = Rect2(16, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_im6uh"]
+atlas = ExtResource("9_jxdgf")
+region = Rect2(32, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6uxl6"]
+atlas = ExtResource("9_jxdgf")
+region = Rect2(48, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eg6qt"]
+atlas = ExtResource("9_jxdgf")
+region = Rect2(64, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_joodx"]
+atlas = ExtResource("9_jxdgf")
+region = Rect2(80, 32, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3bgyl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxdgf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8jt2t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_im6uh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6uxl6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eg6qt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_joodx")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_47hxl"]
+radius = 79.20227
+
+[node name="CafeInterior" type="Node2D" unique_id=886686153]
 script = ExtResource("1_hkawa")
 puzzle_scene = ExtResource("2_t55nw")
 
@@ -67,7 +122,7 @@ scale = Vector2(2.4111936, 2.4111936)
 shape = SubResource("CircleShape2D_6l360")
 
 [node name="Player" parent="." unique_id=1384558383 instance=ExtResource("2_fb6aa")]
-position = Vector2(0, 25.39)
+position = Vector2(-1, 225)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=487030888]
 position = Vector2(-5.086263e-06, -8.463333)
@@ -79,16 +134,46 @@ position = Vector2(-1, 241)
 script = ExtResource("3_fb6aa")
 spawn_id = "Cafe Interior"
 
-[node name="InteractionArea" parent="." unique_id=169360854 instance=ExtResource("3_l3otj")]
+[node name="ExitDoor" parent="." unique_id=169360854 instance=ExtResource("3_l3otj")]
 position = Vector2(0, 314)
 action_name = "Go Out"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1425335116]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitDoor" unique_id=1425335116]
 position = Vector2(1, -16.5)
 shape = SubResource("RectangleShape2D_t55nw")
 
-[node name="LevelDoor" parent="InteractionArea" unique_id=1697513737 instance=ExtResource("8_jxdgf")]
+[node name="LevelDoor" parent="ExitDoor" unique_id=1697513737 instance=ExtResource("8_jxdgf")]
 is_return_door = true
+
+[node name="CafeGuy" type="Node" parent="." unique_id=592045829]
+script = ExtResource("9_8jt2t")
+dialogue_file = "res://Script/Dialogues/cyberCafeConvo.json"
+
+[node name="CafeGuySprite" type="Control" parent="CafeGuy" unique_id=1241469596]
+clip_children = 2
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -288.0
+offset_top = 120.0
+offset_right = -236.0
+offset_bottom = 175.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CafeGuy/CafeGuySprite" unique_id=2046890287]
+position = Vector2(27.999998, 25.999998)
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_3bgyl")
+autoplay = "default"
+
+[node name="InteractionArea" parent="CafeGuy" unique_id=472942687 instance=ExtResource("3_l3otj")]
+position = Vector2(-240, 158)
+action_name = "Talk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CafeGuy/InteractionArea" unique_id=960692556]
+position = Vector2(20, 28)
+shape = SubResource("CircleShape2D_47hxl")
 
 [connection signal="body_entered" from="BG/InteractionArea" to="." method="_on_interaction_area_body_entered"]
 [connection signal="body_exited" from="BG/InteractionArea" to="." method="_on_interaction_area_body_exited"]

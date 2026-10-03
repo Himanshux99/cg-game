@@ -5,7 +5,7 @@
 	"sprite": "SecurityPotrait"
   },
   {
-	"name": "Player",
+	"name": "you",
 	"text": "Sir, I'm here to take admission in Vidhya Institute of Technology. I'm a new student.",
 	"sprite": "PlayerPotrait"
   },
@@ -15,7 +15,7 @@
 	"sprite": "SecurityPotrait"
   },
   {
-	"name": "Player",
+	"name": "you",
 	"text": "No, sir. I don't have the allotment form with me.",
 	"sprite": "PlayerPotrait"
   },
@@ -25,7 +25,7 @@
 	"sprite": "SecurityPotrait"
   },
   {
-	"name": "Player",
+	"name": "you",
 	"text": "Okay, sir. Where can I get the allotment form?",
 	"sprite": "PlayerPotrait"
   },
@@ -35,7 +35,7 @@
 	"sprite": "SecurityPotrait"
   },
   {
-	"name": "Player",
+	"name": "you",
 	"text": "Alright, sir. I'll get it and come back.",
 	"sprite": "PlayerPotrait"
   },

@@ -113,7 +113,7 @@ Cardinals = null
 Diagonals = null
 metadata/_custom_type_script = "uid://8fi7k73fu5po"
 
-[node name="SettingButtonPanel" type="Panel" parent="." unique_id=15709467]
+[node name="SettingButtonPanel" type="Panel" parent="." unique_id=15709467 groups=["click_anim_panel"]]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -141,7 +141,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_6l360")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_vacr6")
 theme_override_styles/hover = SubResource("StyleBoxTexture_6l360")
 
-[node name="SavePanel" type="Panel" parent="." unique_id=1533146517]
+[node name="SavePanel" type="Panel" parent="." unique_id=1533146517 groups=["click_anim_panel"]]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -169,7 +169,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_bft37")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_p1i6o")
 theme_override_styles/hover = SubResource("StyleBoxTexture_bft37")
 
-[node name="DeletePanel" type="Panel" parent="." unique_id=193924040]
+[node name="DeletePanel" type="Panel" parent="." unique_id=193924040 groups=["click_anim_panel"]]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -197,7 +197,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_rd0yu")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_wsdcc")
 theme_override_styles/hover = SubResource("StyleBoxTexture_l3tci")
 
-[node name="RestartPanel" type="Panel" parent="." unique_id=2077176162]
+[node name="RestartPanel" type="Panel" parent="." unique_id=2077176162 groups=["click_anim_panel"]]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -225,7 +225,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_466ek")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_tt1so")
 theme_override_styles/hover = SubResource("StyleBoxTexture_466ek")
 
-[node name="Panel" type="Panel" parent="." unique_id=929046320]
+[node name="Panel" type="Panel" parent="." unique_id=929046320 groups=["click_anim_panel"]]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0

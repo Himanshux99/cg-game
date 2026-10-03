@@ -13,7 +13,15 @@ func _process(delta: float) -> void:
 	pass
 
 func start_dialogue() -> void:
+	if not Dialogue.dialogue_ended.is_connected(_on_dialogue_ended):
+		Dialogue.dialogue_ended.connect(_on_dialogue_ended, CONNECT_ONE_SHOT)
 	Dialogue.start_dialogue_from_json(dialogue_file)
+
+
+func _on_dialogue_ended() -> void:
+	# Chat finished: remember it and make the cafe door glow to point the player there
+	GameManager.object_changed("security_guard", {"talked": true})
+	get_tree().call_group("cafe_door", "startGlow")
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):

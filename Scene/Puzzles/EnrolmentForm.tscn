@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dyr1p4u4i83ue"]
 
+[ext_resource type="Script" uid="uid://dem47dr2f115t" path="res://Script/enrolment_form.gd" id="1_viexo"]
 [ext_resource type="Texture2D" uid="uid://c71wrsgsddagx" path="res://Assets/QUIZ/screen.png" id="2_rphkl"]
 [ext_resource type="Theme" uid="uid://cpt0f7jj2ifov" path="res://GlobalTheme.tres" id="4_gfx7v"]
 [ext_resource type="Texture2D" uid="uid://7fm6l5cxlt67" path="res://Assets/page.png" id="6_viexo"]
@@ -76,6 +77,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_viexo")
+correct_college_id = "VIT2208"
+ERROR_COLOR = Color(1, 0, 0.13725491, 1)
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=125687958]
 layout_mode = 1
@@ -111,7 +115,7 @@ offset_right = 1096.7361
 offset_bottom = 53.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_35nmy")
 
-[node name="SaveNext" type="Button" parent="AspectRatioContainer/Panel" unique_id=1013019017]
+[node name="SubmitButton" type="Button" parent="AspectRatioContainer/Panel" unique_id=1013019017]
 layout_mode = 0
 offset_left = 910.736
 offset_top = 627.0
@@ -127,7 +131,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_itf82")
 theme_override_styles/hover = SubResource("StyleBoxTexture_8hfio")
 text = "Submit"
 
-[node name="QuizContainer" type="Panel" parent="AspectRatioContainer/Panel" unique_id=1649577215]
+[node name="FormContainer" type="Panel" parent="AspectRatioContainer/Panel" unique_id=1649577215]
 layout_mode = 0
 offset_left = 16.736023
 offset_top = 71.0
@@ -135,7 +139,7 @@ offset_right = 1081.7361
 offset_bottom = 701.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_ex3h0")
 
-[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/Panel/QuizContainer" unique_id=1990746135]
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/Panel/FormContainer" unique_id=1990746135]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -145,45 +149,45 @@ grow_vertical = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_right = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer" unique_id=791503013]
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer" unique_id=791503013]
 layout_mode = 2
 
-[node name="TopLines" type="HBoxContainer" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer" unique_id=322630787]
+[node name="TopLines" type="HBoxContainer" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer" unique_id=322630787]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer/TopLines" unique_id=1773379557]
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/TopLines" unique_id=1773379557]
 layout_mode = 2
 theme_override_constants/margin_left = 43
 theme_override_constants/margin_top = 10
 
-[node name="Panel" type="Panel" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer/TopLines/MarginContainer" unique_id=1320706190]
+[node name="Panel" type="Panel" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/TopLines/MarginContainer" unique_id=1320706190]
 custom_minimum_size = Vector2(50, 55)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxTexture_47hxl")
 
-[node name="MarginContainer2" type="MarginContainer" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer/TopLines" unique_id=979951082]
+[node name="MarginContainer2" type="MarginContainer" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/TopLines" unique_id=979951082]
 layout_mode = 2
 theme_override_constants/margin_left = 29
 theme_override_constants/margin_top = 18
 
-[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer/TopLines/MarginContainer2" unique_id=1812845267]
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/TopLines/MarginContainer2" unique_id=1812845267]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="Label" type="Label" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer/TopLines/MarginContainer2/VBoxContainer" unique_id=557310641]
+[node name="Label" type="Label" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/TopLines/MarginContainer2/VBoxContainer" unique_id=557310641]
 layout_mode = 2
 theme = ExtResource("4_gfx7v")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 19
 text = "College Enrollment Form"
 
-[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer/TopLines/MarginContainer2/VBoxContainer" unique_id=1596244533]
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/TopLines/MarginContainer2/VBoxContainer" unique_id=1596244533]
 layout_mode = 2
 theme_override_constants/margin_left = 1
 
-[node name="Label2" type="Label" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer/TopLines/MarginContainer2/VBoxContainer/MarginContainer" unique_id=674662731]
+[node name="Label2" type="Label" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/TopLines/MarginContainer2/VBoxContainer/MarginContainer" unique_id=674662731]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("4_gfx7v")
@@ -191,48 +195,57 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 11
 text = "Fill in the details to complete your enrolment form"
 
-[node name="Line" type="MarginContainer" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer" unique_id=249656146]
+[node name="Line" type="MarginContainer" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer" unique_id=249656146]
 layout_mode = 2
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_bottom = 14
 
-[node name="Line" type="HBoxContainer" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer/Line" unique_id=1847007761]
+[node name="Line" type="HBoxContainer" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/Line" unique_id=1847007761]
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer/Line/Line" unique_id=900566291]
+[node name="Panel" type="Panel" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/Line/Line" unique_id=900566291]
 custom_minimum_size = Vector2(0, 2)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_ex3h0")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer" unique_id=425588032]
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer" unique_id=425588032]
 layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=134224504]
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=134224504]
 layout_mode = 2
 theme_override_constants/margin_top = 8
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer" unique_id=1814812250]
+[node name="HBoxContainer3" type="HBoxContainer" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer" unique_id=1814812250]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/HBoxContainer3" unique_id=1163370370]
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/HBoxContainer3" unique_id=1163370370]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/HBoxContainer3/VBoxContainer" unique_id=1730537037]
+[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/HBoxContainer3/VBoxContainer" unique_id=1720687649]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/HBoxContainer3/VBoxContainer/HBoxContainer" unique_id=1730537037]
 layout_mode = 2
 theme = ExtResource("4_gfx7v")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 13
 text = "College Name *"
 
-[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/HBoxContainer3/VBoxContainer" unique_id=1074605785]
+[node name="requiredText" type="Label" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/HBoxContainer3/VBoxContainer/HBoxContainer" unique_id=1695004304]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "(field Required)"
+
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/HBoxContainer3/VBoxContainer" unique_id=1074605785]
 layout_mode = 2
 theme_override_constants/margin_right = 26
 
-[node name="OptionButton" type="OptionButton" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/HBoxContainer3/VBoxContainer/MarginContainer" unique_id=7015055]
+[node name="OptionButton" type="OptionButton" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/HBoxContainer3/VBoxContainer/MarginContainer" unique_id=7015055]
 custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
 size_flags_vertical = 4
@@ -265,18 +278,28 @@ popup/item_1/id = 0
 popup/item_2/text = " NOT VIT"
 popup/item_2/id = 1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/HBoxContainer3" unique_id=1996395873]
+[node name="VBoxContainer2" type="VBoxContainer" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/HBoxContainer3" unique_id=1996395873]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/HBoxContainer3/VBoxContainer2" unique_id=2032599482]
+[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/HBoxContainer3/VBoxContainer2" unique_id=432207170]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/HBoxContainer3/VBoxContainer2/HBoxContainer" unique_id=2032599482]
 layout_mode = 2
 theme = ExtResource("4_gfx7v")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 13
 text = "College Unique Id *"
 
-[node name="LineEdit" type="LineEdit" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/HBoxContainer3/VBoxContainer2" unique_id=423323322]
+[node name="IncorrectText" type="Label" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/HBoxContainer3/VBoxContainer2/HBoxContainer" unique_id=1001997572]
+layout_mode = 2
+theme = ExtResource("4_gfx7v")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 13
+text = "(Incorrect Id)"
+
+[node name="LineEdit" type="LineEdit" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/HBoxContainer3/VBoxContainer2" unique_id=423323322]
 custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
 theme = ExtResource("4_gfx7v")
@@ -286,29 +309,38 @@ theme_override_styles/read_only = SubResource("StyleBoxTexture_3bgyl")
 theme_override_styles/focus = SubResource("StyleBoxTexture_3bgyl")
 placeholder_text = "ABC1234"
 
-[node name="MarginContainer2" type="MarginContainer" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=465506018]
+[node name="MarginContainer2" type="MarginContainer" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=465506018]
 layout_mode = 2
 theme_override_constants/margin_top = 8
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2" unique_id=897566501]
+[node name="HBoxContainer3" type="HBoxContainer" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2" unique_id=897566501]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/HBoxContainer3" unique_id=434887774]
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/HBoxContainer3" unique_id=434887774]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/HBoxContainer3/VBoxContainer" unique_id=1181154228]
+[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/HBoxContainer3/VBoxContainer" unique_id=149212333]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/HBoxContainer3/VBoxContainer/HBoxContainer" unique_id=1181154228]
 layout_mode = 2
 theme = ExtResource("4_gfx7v")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 13
 text = "Full Name *"
 
-[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/HBoxContainer3/VBoxContainer" unique_id=1429171004]
+[node name="requiredText" type="Label" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/HBoxContainer3/VBoxContainer/HBoxContainer" unique_id=799199281]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "(field Required)"
+
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/HBoxContainer3/VBoxContainer" unique_id=1429171004]
 layout_mode = 2
 theme_override_constants/margin_right = 26
 
-[node name="LineEdit" type="LineEdit" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/HBoxContainer3/VBoxContainer/MarginContainer" unique_id=728881786]
+[node name="LineEdit" type="LineEdit" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/HBoxContainer3/VBoxContainer/MarginContainer" unique_id=728881786]
 custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
 theme = ExtResource("4_gfx7v")
@@ -318,18 +350,27 @@ theme_override_styles/read_only = SubResource("StyleBoxTexture_3bgyl")
 theme_override_styles/focus = SubResource("StyleBoxTexture_3bgyl")
 placeholder_text = "Enter Your Name"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/HBoxContainer3" unique_id=1763526829]
+[node name="VBoxContainer2" type="VBoxContainer" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/HBoxContainer3" unique_id=1763526829]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/HBoxContainer3/VBoxContainer2" unique_id=227384624]
+[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/HBoxContainer3/VBoxContainer2" unique_id=852302015]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/HBoxContainer3/VBoxContainer2/HBoxContainer" unique_id=227384624]
 layout_mode = 2
 theme = ExtResource("4_gfx7v")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 13
 text = "Gender *"
 
-[node name="OptionButton" type="OptionButton" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/HBoxContainer3/VBoxContainer2" unique_id=1066032709]
+[node name="requiredText" type="Label" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/HBoxContainer3/VBoxContainer2/HBoxContainer" unique_id=1683685069]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "(field Required)"
+
+[node name="OptionButton" type="OptionButton" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/HBoxContainer3/VBoxContainer2" unique_id=1066032709]
 custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
 size_flags_vertical = 4
@@ -362,29 +403,38 @@ popup/item_2/id = 1
 popup/item_3/text = " Gamer"
 popup/item_3/id = 3
 
-[node name="MarginContainer3" type="MarginContainer" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=663716759]
+[node name="MarginContainer3" type="MarginContainer" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=663716759]
 layout_mode = 2
 theme_override_constants/margin_top = 8
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3" unique_id=905386457]
+[node name="HBoxContainer3" type="HBoxContainer" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3" unique_id=905386457]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3/HBoxContainer3" unique_id=1397457224]
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3/HBoxContainer3" unique_id=1397457224]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3/HBoxContainer3/VBoxContainer" unique_id=1263024594]
+[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3/HBoxContainer3/VBoxContainer" unique_id=277652302]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3/HBoxContainer3/VBoxContainer/HBoxContainer" unique_id=1263024594]
 layout_mode = 2
 theme = ExtResource("4_gfx7v")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 13
 text = "Email *"
 
-[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3/HBoxContainer3/VBoxContainer" unique_id=2018077822]
+[node name="requiredText" type="Label" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3/HBoxContainer3/VBoxContainer/HBoxContainer" unique_id=1313336611]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "(field Required)"
+
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3/HBoxContainer3/VBoxContainer" unique_id=2018077822]
 layout_mode = 2
 theme_override_constants/margin_right = 26
 
-[node name="LineEdit2" type="LineEdit" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3/HBoxContainer3/VBoxContainer/MarginContainer" unique_id=486787021]
+[node name="LineEdit2" type="LineEdit" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3/HBoxContainer3/VBoxContainer/MarginContainer" unique_id=486787021]
 custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
 theme = ExtResource("4_gfx7v")
@@ -394,18 +444,27 @@ theme_override_styles/read_only = SubResource("StyleBoxTexture_3bgyl")
 theme_override_styles/focus = SubResource("StyleBoxTexture_3bgyl")
 placeholder_text = "Enter Your Mail"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3/HBoxContainer3" unique_id=1247337190]
+[node name="VBoxContainer2" type="VBoxContainer" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3/HBoxContainer3" unique_id=1247337190]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3/HBoxContainer3/VBoxContainer2" unique_id=1120195183]
+[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3/HBoxContainer3/VBoxContainer2" unique_id=1842793147]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3/HBoxContainer3/VBoxContainer2/HBoxContainer" unique_id=1120195183]
 layout_mode = 2
 theme = ExtResource("4_gfx7v")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 13
 text = "Phone *"
 
-[node name="LineEdit3" type="LineEdit" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3/HBoxContainer3/VBoxContainer2" unique_id=1454131150]
+[node name="requiredText" type="Label" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3/HBoxContainer3/VBoxContainer2/HBoxContainer" unique_id=378981866]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "(field Required)"
+
+[node name="LineEdit3" type="LineEdit" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3/HBoxContainer3/VBoxContainer2" unique_id=1454131150]
 custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
 theme = ExtResource("4_gfx7v")
@@ -415,29 +474,38 @@ theme_override_styles/read_only = SubResource("StyleBoxTexture_3bgyl")
 theme_override_styles/focus = SubResource("StyleBoxTexture_3bgyl")
 placeholder_text = "Phone Number"
 
-[node name="MarginContainer4" type="MarginContainer" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=797352204]
+[node name="MarginContainer4" type="MarginContainer" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=797352204]
 layout_mode = 2
 theme_override_constants/margin_top = 8
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer4" unique_id=1581090500]
+[node name="HBoxContainer3" type="HBoxContainer" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer4" unique_id=1581090500]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer4/HBoxContainer3" unique_id=1055233251]
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer4/HBoxContainer3" unique_id=1055233251]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer4/HBoxContainer3/VBoxContainer" unique_id=734115252]
+[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer4/HBoxContainer3/VBoxContainer" unique_id=249683595]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer4/HBoxContainer3/VBoxContainer/HBoxContainer" unique_id=734115252]
 layout_mode = 2
 theme = ExtResource("4_gfx7v")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 13
 text = "Course/Program *"
 
-[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer4/HBoxContainer3/VBoxContainer" unique_id=2012196726]
+[node name="requiredText" type="Label" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer4/HBoxContainer3/VBoxContainer/HBoxContainer" unique_id=1575361282]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "(field Required)"
+
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer4/HBoxContainer3/VBoxContainer" unique_id=2012196726]
 layout_mode = 2
 theme_override_constants/margin_right = 540
 
-[node name="OptionButton2" type="OptionButton" parent="AspectRatioContainer/Panel/QuizContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer4/HBoxContainer3/VBoxContainer/MarginContainer" unique_id=98993166]
+[node name="OptionButton2" type="OptionButton" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer4/HBoxContainer3/VBoxContainer/MarginContainer" unique_id=98993166]
 custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
 size_flags_vertical = 4
@@ -467,5 +535,109 @@ popup/item_1/text = " Btech"
 popup/item_1/id = 0
 popup/item_2/text = " B.Tech."
 popup/item_2/id = 1
+
+[node name="FormFilledContainer" type="Panel" parent="AspectRatioContainer/Panel" unique_id=411102667]
+visible = false
+layout_mode = 0
+offset_left = 16.736023
+offset_top = 71.0
+offset_right = 1081.7361
+offset_bottom = 701.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ex3h0")
+
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/Panel/FormFilledContainer" unique_id=2101560888]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/Panel/FormFilledContainer/MarginContainer" unique_id=1119659744]
+layout_mode = 2
+
+[node name="TopLines" type="HBoxContainer" parent="AspectRatioContainer/Panel/FormFilledContainer/MarginContainer/VBoxContainer" unique_id=1907717149]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/Panel/FormFilledContainer/MarginContainer/VBoxContainer/TopLines" unique_id=113354601]
+layout_mode = 2
+theme_override_constants/margin_left = 43
+theme_override_constants/margin_top = 10
+
+[node name="Panel" type="Panel" parent="AspectRatioContainer/Panel/FormFilledContainer/MarginContainer/VBoxContainer/TopLines/MarginContainer" unique_id=532522601]
+custom_minimum_size = Vector2(50, 55)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_47hxl")
+
+[node name="MarginContainer2" type="MarginContainer" parent="AspectRatioContainer/Panel/FormFilledContainer/MarginContainer/VBoxContainer/TopLines" unique_id=1752873390]
+layout_mode = 2
+theme_override_constants/margin_left = 29
+theme_override_constants/margin_top = 18
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/Panel/FormFilledContainer/MarginContainer/VBoxContainer/TopLines/MarginContainer2" unique_id=1534175581]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Label" type="Label" parent="AspectRatioContainer/Panel/FormFilledContainer/MarginContainer/VBoxContainer/TopLines/MarginContainer2/VBoxContainer" unique_id=102645501]
+layout_mode = 2
+theme = ExtResource("4_gfx7v")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 19
+text = "College Enrollment Form"
+
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/Panel/FormFilledContainer/MarginContainer/VBoxContainer/TopLines/MarginContainer2/VBoxContainer" unique_id=706922851]
+layout_mode = 2
+theme_override_constants/margin_left = 1
+
+[node name="Label2" type="Label" parent="AspectRatioContainer/Panel/FormFilledContainer/MarginContainer/VBoxContainer/TopLines/MarginContainer2/VBoxContainer/MarginContainer" unique_id=1854248583]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("4_gfx7v")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 11
+text = "Fill in the details to complete your enrolment form"
+
+[node name="Line" type="MarginContainer" parent="AspectRatioContainer/Panel/FormFilledContainer/MarginContainer/VBoxContainer" unique_id=1200320888]
+layout_mode = 2
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_bottom = 14
+
+[node name="Line" type="HBoxContainer" parent="AspectRatioContainer/Panel/FormFilledContainer/MarginContainer/VBoxContainer/Line" unique_id=562992292]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="AspectRatioContainer/Panel/FormFilledContainer/MarginContainer/VBoxContainer/Line/Line" unique_id=282595002]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_ex3h0")
+
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/Panel/FormFilledContainer/MarginContainer/VBoxContainer" unique_id=834806827]
+layout_mode = 2
+theme_override_constants/margin_top = 126
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/Panel/FormFilledContainer/MarginContainer/VBoxContainer/MarginContainer" unique_id=1029691563]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Label" type="Label" parent="AspectRatioContainer/Panel/FormFilledContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=542450664]
+layout_mode = 2
+theme = ExtResource("4_gfx7v")
+theme_override_colors/font_color = Color(0, 0.81015813, 0, 1)
+theme_override_font_sizes/font_size = 27
+text = "Form Filled"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="AspectRatioContainer/Panel/FormFilledContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=314297213]
+layout_mode = 2
+theme = ExtResource("4_gfx7v")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Take the Print Out"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="AspectRatioContainer/Panel/CloseButton" to="." method="_on_close_button_pressed"]

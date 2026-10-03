@@ -4,6 +4,7 @@
 [ext_resource type="Shader" uid="uid://dclj43026kw4e" path="res://Script/SilhouetteSpriteShader.gdshader" id="2_58ae2"]
 [ext_resource type="Texture2D" uid="uid://l53nv8jijlpt" path="res://Assets/Cute_Fantasy_Free/Player/Player.png" id="2_y8w33"]
 [ext_resource type="PackedScene" uid="uid://cslclw6oaflfu" path="res://Scene/ui.tscn" id="3_xa75v"]
+[ext_resource type="AudioStream" uid="uid://cfy4su77s2r43" path="res://Assets/Sound/Footstep_Tile_Left.mp3" id="5_ivevv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3bgyl"]
 shader = ExtResource("2_58ae2")
@@ -391,3 +392,11 @@ position = Vector2(-0.33333334, 2)
 shape = SubResource("CapsuleShape2D_j47wa")
 
 [node name="UI" parent="." unique_id=1583945617 instance=ExtResource("3_xa75v")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2026883916]
+stream = ExtResource("5_ivevv")
+pitch_scale = 0.99
+
+[node name="Timer" type="Timer" parent="." unique_id=1517851684]
+wait_time = 0.38
+one_shot = true

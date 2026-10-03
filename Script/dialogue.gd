@@ -16,9 +16,23 @@ const PORTRAIT_FOLDER_PATH = "res://Assets/portraits/"
 var current_dialogue_data: Array = []
 var current_line_index: int = 0
 
+## Played on a loop while the dialogue box is open.
+@export var talking_stream: AudioStream = preload("res://Assets/Sound/Talking.mp3")
+@export var talking_volume_db := 0.0
+## Seconds to skip at the start of the talking sound each time it (re)starts.
+@export var talking_start_time := 0.0
+
+var talking_player: AudioStreamPlayer
+
 func _ready() -> void:
 	visible = false
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	talking_player = AudioStreamPlayer.new()
+	talking_player.stream = talking_stream
+	talking_player.volume_db = talking_volume_db
+	add_child(talking_player)
+	# Loop by restarting each time it ends, only while a dialogue is open
+	talking_player.finished.connect(_on_talking_finished)
 	next_button.pressed.connect(_on_next_pressed)
 	prev_button.pressed.connect(_on_prev_pressed)
 
@@ -43,6 +57,7 @@ func start_dialogue_from_json(file_path: String) -> void:
 			get_tree().paused = true
 			UIManager.set_group_visible("MobileControlUi", false)
 			emit_signal("dialogue_started")
+			talking_player.play(talking_start_time)
 			show_line()
 		else:
 			push_error("JSON root must be an Array [ ]")
@@ -89,7 +104,12 @@ func _on_prev_pressed() -> void:
 		current_line_index -= 1
 		show_line()
 
+func _on_talking_finished() -> void:
+	if visible:
+		talking_player.play(talking_start_time)
+
 func end_dialogue() -> void:
+	talking_player.stop()
 	visible = false
 	get_tree().paused = false
 	UIManager.set_group_visible("MobileControlUi", true)

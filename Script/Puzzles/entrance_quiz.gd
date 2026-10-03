@@ -3,6 +3,13 @@ extends Control
 signal puzzle_solved(puzzle_id)
 signal puzzle_closed(puzzle_id)
 
+## Shown once all four answers are correct.
+@export var enrolment_form_scene: PackedScene = preload("res://Scene/Puzzles/EnrolmentForm.tscn")
+## Dialogue played after the enrolment form has been filled and shows "Form Filled".
+@export_file("*.json") var form_filled_dialogue: String
+
+var enrolment_form: Control
+
 # --------------------------------------------------
 # QUIZ DATA
 # --------------------------------------------------
@@ -120,7 +127,10 @@ func _ready():
 
 	load_saved_progress()
 
-	if not player_answers.has(-1):
+	if _all_correct():
+		# Quiz already passed: continue from the enrolment form
+		show_enrolment_form()
+	elif not player_answers.has(-1):
 		# Every question already has a saved answer: show the result screen
 		finish_quiz()
 	else:
@@ -321,11 +331,9 @@ func _on_retake_submit_pressed():
 		if player_answers[i] == quizzes[i]["answer"]:
 			score += 1
 			
-	# If player solved all riddles, emit solve signal and close
+	# If player solved all riddles, move on to the enrolment form
 	if score == quizzes.size():
-		puzzle_solved.emit(puzzle_id)
-		puzzle_closed.emit(puzzle_id)
-		# Optional: queue_free() or hide the puzzle overlay entirely here
+		show_enrolment_form()
 	else:
 		# Reset quiz state for a retake
 		player_answers = [-1, -1, -1, -1]
@@ -337,6 +345,36 @@ func _on_retake_submit_pressed():
 		quiz_container.visible = true
 		result_screen.visible = false
 		load_quiz(0)
+
+
+func _all_correct() -> bool:
+	for i in range(quizzes.size()):
+		if player_answers[i] != quizzes[i]["answer"]:
+			return false
+	return true
+
+
+# --------------------------------------------------
+# ENROLMENT FORM
+# --------------------------------------------------
+
+func show_enrolment_form() -> void:
+	if enrolment_form or not enrolment_form_scene:
+		return
+	quiz_container.visible = false
+	result_screen.visible = false
+	enrolment_form = enrolment_form_scene.instantiate()
+	add_child(enrolment_form)
+	enrolment_form.puzzle_closed.connect(func(_id): _on_close_button_pressed())
+	enrolment_form.puzzle_solved.connect(_on_form_solved)
+
+
+func _on_form_solved(form_id: String) -> void:
+	GameManager.puzzle_solved(form_id)
+	# Marks the quiz puzzle solved and makes PuzzleManager close this UI
+	puzzle_solved.emit(puzzle_id)
+	if not form_filled_dialogue.is_empty():
+		Dialogue.start_dialogue_from_json(form_filled_dialogue)
 
 
 func _on_close_button_pressed() -> void:

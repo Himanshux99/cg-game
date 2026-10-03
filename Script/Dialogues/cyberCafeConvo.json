@@ -1,0 +1,57 @@
+[
+  {
+    "name": "Cyber Cafe Owner",
+    "text": "Haan bhai, kya chahiye?",
+    "sprite": "CyberGuyPortrait"
+  },
+  {
+    "name": "you",
+    "text": "Bhaiya, mujhe allotment form chahiye.",
+    "sprite": "PlayerPotrait"
+  },
+  {
+    "name": "Cyber Cafe Owner",
+    "text": "Theek hai, allotment form bhej do. Main print kar deta hoon.",
+    "sprite": "CyberGuyPortrait"
+  },
+  {
+    "name": "you",
+    "text": "Woh... mere paas abhi allotment form hai hi nahi.",
+    "sprite": "PlayerPotrait"
+  },
+  {
+    "name": "Cyber Cafe Owner",
+    "text": "Achha, toh pehle entrance quiz dena padega.",
+    "sprite": "CyberGuyPortrait"
+  },
+  {
+    "name": "you",
+    "text": "Entrance quiz?",
+    "sprite": "PlayerPotrait"
+  },
+  {
+    "name": "Cyber Cafe Owner",
+    "text": "Haan. Entrance quiz mandatory hai. Quiz complete karoge tabhi allotment form milega.",
+    "sprite": "CyberGuyPortrait"
+  },
+  {
+    "name": "you",
+    "text": "Achha... kya main koi PC use karke quiz de sakta hoon?",
+    "sprite": "PlayerPotrait"
+  },
+  {
+    "name": "Cyber Cafe Owner",
+    "text": "Haan, bilkul. Opposite side mein beech wala PC chalu hai, wahi use kar lo.",
+    "sprite": "CyberGuyPortrait"
+  },
+  {
+    "name": "you",
+    "text": "Theek hai, quiz de deta hoon.",
+    "sprite": "PlayerPotrait"
+  },
+  {
+    "name": "Cyber Cafe Owner",
+    "text": "Quiz ke baad enrollment form fill kar lena. Uske baad allotment form ka kaam ho jayega.",
+    "sprite": "CyberGuyPortrait"
+  }
+]

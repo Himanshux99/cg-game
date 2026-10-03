@@ -11,6 +11,12 @@ extends Node
 ## it sends the player back to whichever gate they entered from.
 @export var is_return_door := false
 
+## Played when the door is used.
+@export var door_sound: AudioStream = preload("res://Assets/Sound/Door.mp3")
+@export var door_volume_db := 0.0
+## Seconds to skip at the start of the door sound.
+@export var door_sound_start_time := 0.0
+
 @onready var interaction_area: InteractionArea = _find_interaction_area()
 
 
@@ -31,6 +37,8 @@ func _ready() -> void:
 
 
 func _on_interact() -> void:
+	if is_return_door or target_scene_path != "":
+		SceneManager.play_sound(door_sound, door_volume_db, door_sound_start_time)
 	if is_return_door:
 		SceneManager.go_back()
 	elif target_scene_path != "":
