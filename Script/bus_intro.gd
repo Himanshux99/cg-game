@@ -127,7 +127,3 @@ func _find_node_by_name(node: Node, target_name: String) -> Node2D:
 		if found:
 			return found
 	return null
-
-
-func _on_2d_body_entered_closedarea(body: Node2D) -> void:
-	pass # Replace with function body.

@@ -45,6 +45,7 @@ func _ready() -> void:
 	submit_button.move_to_front()
 	submit_button.pressed.connect(_on_submit_pressed)
 
+	_load_details()
 	if SaveManager.is_puzzle_solved(puzzle_id):
 		_show_filled()
 	else:
@@ -126,9 +127,39 @@ func _on_submit_pressed() -> void:
 		_set_error(college_id_edit, true, true)
 		return
 
+	_save_details()
+	InventoryManager.add_item("form")
 	_show_filled()
 	await get_tree().create_timer(2.5).timeout
 	puzzle_solved.emit(puzzle_id)
+
+
+## Stores what the player entered (once, on a successful submit) and writes it to disk.
+func _save_details() -> void:
+	SaveManager.set_object_state(puzzle_id, {
+		"college": college_option.selected,
+		"college_id": college_id_edit.text.strip_edges(),
+		"name": name_edit.text.strip_edges(),
+		"gender": gender_option.selected,
+		"email": email_edit.text.strip_edges(),
+		"phone": phone_edit.text.strip_edges(),
+		"course": course_option.selected,
+	})
+	SaveManager.set_puzzle_solved(puzzle_id)
+	SaveManager.save_game()
+
+
+func _load_details() -> void:
+	var d := SaveManager.get_object_state(puzzle_id)
+	if d.is_empty():
+		return
+	college_option.selected = int(d.get("college", 0))
+	college_id_edit.text = d.get("college_id", "")
+	name_edit.text = d.get("name", "")
+	gender_option.selected = int(d.get("gender", 0))
+	email_edit.text = d.get("email", "")
+	phone_edit.text = d.get("phone", "")
+	course_option.selected = int(d.get("course", 0))
 
 
 func _show_filled() -> void:

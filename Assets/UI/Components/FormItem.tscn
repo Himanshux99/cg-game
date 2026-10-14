@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://caklaqmoa3y5y"]
+
+[ext_resource type="Texture2D" uid="uid://br7ogciq60nhb" path="res://Assets/UI/modern_form_sprite_64x64.png" id="1_o8xd5"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3bgyl"]
+texture = ExtResource("1_o8xd5")
+
+[node name="FormItem" type="Panel" unique_id=530970561]
+custom_minimum_size = Vector2(80, 80)
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="." unique_id=346035856]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_3bgyl")

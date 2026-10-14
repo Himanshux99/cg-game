@@ -26,6 +26,8 @@
 [ext_resource type="Texture2D" uid="uid://57fknuins3kk" path="res://Assets/PassendgerBusSmall.png" id="23_cn0a0"]
 [ext_resource type="Script" uid="uid://c6s1dbjfxma4u" path="res://Script/interactions/spawn_point.gd" id="24_bcho1"]
 [ext_resource type="Texture2D" uid="uid://cbiqb86mymsxt" path="res://Assets/b97f97c0-b33c-423f-a3c8-793338db8fcb.png" id="24_h8w83"]
+[ext_resource type="Script" uid="uid://d1bh70diuxjvi" path="res://Script/interactions/interaction_area.gd" id="27_7hh5n"]
+[ext_resource type="Script" uid="uid://dm0p26bb52gcd" path="res://Script/levelDoor.gd" id="27_84abh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7xqwh"]
 texture = ExtResource("1_2sk54")
@@ -4338,6 +4340,9 @@ size = Vector2(403, 39)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6l360"]
 size = Vector2(415, 59)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ex3h0"]
+size = Vector2(409, 174)
+
 [node name="Part-1" type="Node2D" unique_id=941616756 node_paths=PackedStringArray("player", "bus")]
 y_sort_enabled = true
 script = ExtResource("1_bcho1")
@@ -4446,4 +4451,32 @@ shape = SubResource("RectangleShape2D_3bgyl")
 position = Vector2(-353.5, -724.5)
 shape = SubResource("RectangleShape2D_6l360")
 
+[node name="CollegeEntry" type="StaticBody2D" parent="." unique_id=1744432146]
+script = ExtResource("27_84abh")
+target_scene_path = "uid://clhjy2qn31n41"
+target_spawn_id = "Part-2_spawn"
+return_spawn_id = "part-2_respawn"
+
+[node name="InteractionArea" type="Area2D" parent="CollegeEntry" unique_id=1571367090]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("27_7hh5n")
+action_name = "Enter the College"
+metadata/_custom_type_script = "uid://d1bh70diuxjvi"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollegeEntry/InteractionArea" unique_id=1812639206]
+position = Vector2(-356.5, -803)
+shape = SubResource("RectangleShape2D_ex3h0")
+debug_color = Color(0, 0.6497677, 0.14271921, 0.41960785)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CollegeEntry" unique_id=1193400339]
+polygon = PackedVector2Array(-531, -789, -474, -817, -473, -849, -238, -850, -238, -817, -155, -769, -153, -912, -548, -910, -556, -773)
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1056762086]
+position = Vector2(-361, -635)
+script = ExtResource("24_bcho1")
+spawn_id = " "
+
 [connection signal="body_entered" from="EnteryClosed/Area2D" to="SecurityCabin" method="_on_2d_body_entered_clg_gate"]
+[connection signal="body_entered" from="CollegeEntry/InteractionArea" to="CollegeEntry/InteractionArea" method="_on_body_entered"]
+[connection signal="body_exited" from="CollegeEntry/InteractionArea" to="CollegeEntry/InteractionArea" method="_on_body_exited"]

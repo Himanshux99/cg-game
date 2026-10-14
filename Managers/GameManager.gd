@@ -17,6 +17,7 @@ func load_game():
 		return
 
 	SaveManager.load_game(player)
+	InventoryManager.inventory_reloaded.emit()
 	game_loaded = true
 
 

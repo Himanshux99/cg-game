@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://clhjy2qn31n41"]
+
+[ext_resource type="Script" uid="uid://c6s1dbjfxma4u" path="res://Script/interactions/spawn_point.gd" id="1_gofxa"]
+[ext_resource type="Texture2D" uid="uid://le5osxxoxhb3" path="res://Assets/UI/button_round_depth_flat.png" id="2_ejkvy"]
+[ext_resource type="PackedScene" uid="uid://b51fknuspfqbl" path="res://Scene/player.tscn" id="3_w8um1"]
+
+[node name="Part-2" type="Node2D" unique_id=797764132]
+position = Vector2(444, 427)
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1748964956]
+script = ExtResource("1_gofxa")
+spawn_id = "Part-2_spawn"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2038369478]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=503521561]
+position = Vector2(663, 216)
+texture = ExtResource("2_ejkvy")
+
+[node name="Player" parent="." unique_id=1384558383 instance=ExtResource("3_w8um1")]
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=551812925]

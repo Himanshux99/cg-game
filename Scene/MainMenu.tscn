@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://cq2hqtdab0747"]
 
+[ext_resource type="Script" path="res://Script/main_menu.gd" id="1_menu"]
 [ext_resource type="Texture2D" uid="uid://bjdp8yxjkd1ie" path="res://Assets/UI/Spritesheet_UI_Flat.png" id="1_rrxvj"]
+[ext_resource type="Texture2D" uid="uid://nob0qu1fovmi" path="res://Assets/Icon/Logo_Long.png" id="2_logo"]
+[ext_resource type="FontFile" uid="uid://bvga0jdawh343" path="res://Assets/font/PixelifySans-VariableFont_wght.ttf" id="3_font"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cc8mb"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_normal"]
 texture = ExtResource("1_rrxvj")
 texture_margin_left = 4.0
 texture_margin_top = 4.0
@@ -10,25 +13,140 @@ texture_margin_right = 4.0
 texture_margin_bottom = 4.0
 region_rect = Rect2(32, 32, 96, 64)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_66a3x"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pressed"]
 texture = ExtResource("1_rrxvj")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
 region_rect = Rect2(32, 32, 96, 64)
-modulate_color = Color(1, 1, 1, 0.6039216)
+modulate_color = Color(1, 1, 1, 0.6)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6ui13"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hover"]
 texture = ExtResource("1_rrxvj")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
 region_rect = Rect2(32, 32, 96, 64)
-modulate_color = Color(1, 1, 1, 0.80784315)
+modulate_color = Color(1, 0.95, 0.75, 1)
 
-[node name="MainMenu" type="Control" unique_id=1535153467]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_disabled"]
+texture = ExtResource("1_rrxvj")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(32, 32, 96, 64)
+modulate_color = Color(0.5, 0.5, 0.5, 0.7)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dim"]
+bg_color = Color(0, 0, 0, 0.75)
+
+[node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_menu")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1971728040]
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.05, 0.09, 1)
+
+[node name="Logo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -260.0
+offset_top = 10.0
+offset_right = 260.0
+offset_bottom = 360.0
+grow_horizontal = 2
+texture = ExtResource("2_logo")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -120.0
+offset_top = -350.0
+offset_right = 120.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="Continue" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(240, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_normal")
+theme_override_styles/hover = SubResource("StyleBoxTexture_hover")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_pressed")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_disabled")
+text = "Continue"
+
+[node name="NewGame" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(240, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_normal")
+theme_override_styles/hover = SubResource("StyleBoxTexture_hover")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_pressed")
+text = "New Game"
+
+[node name="Options" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(240, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_normal")
+theme_override_styles/hover = SubResource("StyleBoxTexture_hover")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_pressed")
+text = "Options"
+
+[node name="Quit" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(240, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_normal")
+theme_override_styles/hover = SubResource("StyleBoxTexture_hover")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_pressed")
+text = "Quit"
+
+[node name="OptionsPanel" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -36,39 +154,66 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2019479353]
+[node name="Dim" type="Panel" parent="OptionsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dim")
+
+[node name="Box" type="VBoxContainer" parent="OptionsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -150.0
+offset_right = 200.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 14
+
+[node name="Title" type="Label" parent="OptionsPanel/Box"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 40
+text = "Options"
+horizontal_alignment = 1
+
+[node name="MusicLabel" type="Label" parent="OptionsPanel/Box"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 24
+text = "Volume"
+
+[node name="MusicSlider" type="HSlider" parent="OptionsPanel/Box"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="Fullscreen" type="CheckButton" parent="OptionsPanel/Box"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 24
+text = "Fullscreen"
+
+[node name="Back" type="Button" parent="OptionsPanel/Box"]
+custom_minimum_size = Vector2(240, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 12
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=20688711]
-layout_mode = 2
-theme_override_font_sizes/font_size = 26
-text = "Game BTW"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Button3" type="Button" parent="MarginContainer/VBoxContainer" unique_id=104841772]
-custom_minimum_size = Vector2(240, 50)
-layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_font")
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxTexture_cc8mb")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_66a3x")
-theme_override_styles/hover = SubResource("StyleBoxTexture_6ui13")
-text = "Start"
-
-[node name="Button4" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1602830625]
-custom_minimum_size = Vector2(240, 50)
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxTexture_cc8mb")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_66a3x")
-theme_override_styles/hover = SubResource("StyleBoxTexture_6ui13")
-text = "Option"
+theme_override_styles/normal = SubResource("StyleBoxTexture_normal")
+theme_override_styles/hover = SubResource("StyleBoxTexture_hover")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_pressed")
+text = "Back"

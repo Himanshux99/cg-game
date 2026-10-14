@@ -28,6 +28,7 @@ action_name = "Enter CyberCafe"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=339583214]
 position = Vector2(-0.16662598, 14)
 shape = SubResource("RectangleShape2D_3bgyl")
+debug_color = Color(0, 0.6428323, 0.31631437, 0.41960785)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1327055623]
 position = Vector2(6.1035156e-05, -5.5833435)

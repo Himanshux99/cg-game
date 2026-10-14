@@ -74,6 +74,8 @@ texture = ExtResource("9_vacr6")
 region_rect = Rect2(0, 0, 96, 96)
 modulate_color = Color(1, 1, 1, 0.6431373)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p1i6o"]
+
 [node name="UI" type="CanvasLayer" unique_id=1583945617 groups=["MobileControlUi"]]
 script = ExtResource("1_bpjw8")
 
@@ -258,6 +260,27 @@ size_flags_vertical = 4
 theme_override_styles/normal = SubResource("StyleBoxTexture_3bgyl")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_d0mn4")
 theme_override_styles/hover = SubResource("StyleBoxTexture_3bgyl")
+
+[node name="InvetoryPanel" type="Panel" parent="." unique_id=476100860]
+offset_right = 756.0
+offset_bottom = 130.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_p1i6o")
+
+[node name="MarginContainer" type="MarginContainer" parent="InvetoryPanel" unique_id=173964594]
+custom_minimum_size = Vector2(0, 130)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 50.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="ItemHBoxContainer" type="HBoxContainer" parent="InvetoryPanel/MarginContainer" unique_id=1162798804]
+layout_mode = 2
+theme_override_constants/separation = 25
 
 [connection signal="pressed" from="SettingButtonPanel/SettingButton" to="." method="_on_setting_button_pressed"]
 [connection signal="pressed" from="SavePanel/SaveButton" to="." method="_on_save_button_pressed"]

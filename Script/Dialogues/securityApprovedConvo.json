@@ -1,0 +1,17 @@
+[
+  {
+	"name": "Security Guard",
+	"text": "Ah, you got the enrollment form. Let me see... Everything looks fine.",
+	"sprite": "SecurityPotrait"
+  },
+  {
+	"name": "Security Guard",
+	"text": "Okay, you got the enrollment. Now go to the A block.",
+	"sprite": "SecurityPotrait"
+  },
+  {
+	"name": "you",
+	"text": "Thank you, sir!",
+	"sprite": "PlayerPotrait"
+  }
+]

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Pendora"
-run/main_scene="uid://cmxnsspbm7uci"
+run/main_scene="uid://cq2hqtdab0747"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="uid://bmkpt45df3wbi"
 
@@ -26,6 +26,7 @@ Dialogue="*uid://bln61ikuy0w4b"
 UIManager="*res://Managers/UIManager.gd"
 MusicController="*uid://dbmpu34gnrwil"
 ButtonFX="*res://Managers/ButtonFX.gd"
+InventoryManager="*res://Managers/InventoryManager.gd"
 
 [display]
 

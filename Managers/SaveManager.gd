@@ -12,7 +12,9 @@ var save_data := {
 
 	"puzzles": {},
 
-	"objects": {}
+	"objects": {},
+
+	"inventory": []
 }
 
 
@@ -36,7 +38,9 @@ func clear_save():
 
 		"puzzles": {},
 
-		"objects": {}
+		"objects": {},
+
+		"inventory": []
 	}
 	print("Save Deleted")
 
@@ -83,3 +87,13 @@ func set_object_state(object_id: String, state: Dictionary):
 
 func get_object_state(object_id: String) -> Dictionary:
 	return save_data["objects"].get(object_id, {})
+
+
+func get_inventory() -> Array:
+	return save_data.get("inventory", [])
+
+
+func add_inventory_item(item_id: String):
+	if not save_data.has("inventory"):
+		save_data["inventory"] = []
+	save_data["inventory"].append(item_id)

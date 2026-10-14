@@ -105,7 +105,7 @@ func _on_up(target: Control) -> void:
 
 
 func _new_tween(target: Control) -> Tween:
-	var old: Tween = target.get_meta(META_TWEEN, null)
+	var old: Tween = target.get_meta(META_TWEEN) if target.has_meta(META_TWEEN) else null
 	if old and old.is_valid():
 		old.kill()
 	var tween := target.create_tween()
