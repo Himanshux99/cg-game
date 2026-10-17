@@ -3,11 +3,29 @@ extends Node
 var _pending_spawn_id := ""
 var _return_scene_path := ""
 var _return_spawn_id := ""
+var _pending_position := Vector2.ZERO
+var _has_pending_position := false
 
 
 func change_scene(scene: PackedScene, spawn_id: String = "default") -> void:
 	_pending_spawn_id = spawn_id
+	GameManager.update_stage_for_scene(scene.resource_path)
 	get_tree().change_scene_to_packed(scene)
+
+
+## Reloads a scene and puts the player at an exact world position instead of a spawn point.
+func change_scene_at_position(scene: PackedScene, position: Vector2) -> void:
+	_pending_position = position
+	_has_pending_position = true
+	change_scene(scene, "")
+
+
+## Returns the one-shot pending position, or null if none was requested.
+func consume_pending_position():
+	if not _has_pending_position:
+		return null
+	_has_pending_position = false
+	return _pending_position
 
 
 ## Enter a scene through a gate, remembering the current scene + return_spawn_id
@@ -44,6 +62,7 @@ func consume_pending_spawn_id() -> String:
 
 
 func reset() -> void:
+	_has_pending_position = false
 	_pending_spawn_id = ""
 	_return_scene_path = ""
 	_return_spawn_id = ""

@@ -1,23 +1,174 @@
 [gd_scene format=3 uid="uid://clhjy2qn31n41"]
 
 [ext_resource type="Script" uid="uid://c6s1dbjfxma4u" path="res://Script/interactions/spawn_point.gd" id="1_gofxa"]
-[ext_resource type="Texture2D" uid="uid://le5osxxoxhb3" path="res://Assets/UI/button_round_depth_flat.png" id="2_ejkvy"]
+[ext_resource type="Texture2D" uid="uid://cbiqb86mymsxt" path="res://Assets/b97f97c0-b33c-423f-a3c8-793338db8fcb.png" id="3_0chs3"]
 [ext_resource type="PackedScene" uid="uid://b51fknuspfqbl" path="res://Scene/player.tscn" id="3_w8um1"]
+[ext_resource type="Texture2D" uid="uid://vo8vhuegptdh" path="res://Assets/Modern tiles_Free/Characters_free/Alex_16x16.png" id="4_0chs3"]
+[ext_resource type="PackedScene" uid="uid://d2cst3bbenwx4" path="res://Interaction/Interaction Area/InteractionArea.tscn" id="4_8baxl"]
+[ext_resource type="Script" uid="uid://mh4dye1hgxvj" path="res://Script/guide_staff.gd" id="4_jrt0f"]
+[ext_resource type="Script" uid="uid://dm0p26bb52gcd" path="res://Script/levelDoor.gd" id="7_byudg"]
+[ext_resource type="PackedScene" uid="uid://50mwawv5iu42" path="res://Scene/Puzzles/WhereIsBlock.tscn" id="99_wib"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8baxl"]
+atlas = ExtResource("4_0chs3")
+region = Rect2(288, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrt0f"]
+atlas = ExtResource("4_0chs3")
+region = Rect2(304, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_byudg"]
+atlas = ExtResource("4_0chs3")
+region = Rect2(320, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a83ny"]
+atlas = ExtResource("4_0chs3")
+region = Rect2(336, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7im0r"]
+atlas = ExtResource("4_0chs3")
+region = Rect2(352, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2squu"]
+atlas = ExtResource("4_0chs3")
+region = Rect2(368, 32, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3bgyl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8baxl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrt0f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_byudg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a83ny")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7im0r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2squu")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3bgyl"]
+radius = 4.013865
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ex3h0"]
+radius = 49.33446
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3bgyl"]
+size = Vector2(81.16586, 55.54303)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6l360"]
+size = Vector2(80.61751, 20)
 
 [node name="Part-2" type="Node2D" unique_id=797764132]
-position = Vector2(444, 427)
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1748964956]
 script = ExtResource("1_gofxa")
 spawn_id = "Part-2_spawn"
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2038369478]
-visible = false
+[node name="CollegeMap" type="Sprite2D" parent="." unique_id=1126323561]
+position = Vector2(6.9999995, -602)
+scale = Vector2(1.7774763, 1.6235352)
+texture = ExtResource("3_0chs3")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=503521561]
-position = Vector2(663, 216)
-texture = ExtResource("2_ejkvy")
+[node name="GuideStaff" type="AnimatedSprite2D" parent="." unique_id=1544982151]
+y_sort_enabled = true
+position = Vector2(-181, -344)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_3bgyl")
+autoplay = "default"
+offset = Vector2(0, -6.21)
+script = ExtResource("4_jrt0f")
+puzzle_scene = ExtResource("99_wib")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="GuideStaff" unique_id=1523501815]
+y_sort_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GuideStaff/StaticBody2D" unique_id=2113812929]
+y_sort_enabled = true
+position = Vector2(0, 3.3333383)
+shape = SubResource("CircleShape2D_3bgyl")
+
+[node name="GuideCallingLine" type="Label" parent="GuideStaff" unique_id=1144316984]
+z_index = 10
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -66.0
+offset_top = -30.666664
+offset_right = 54.0
+offset_bottom = -15.666664
+grow_horizontal = 2
+pivot_offset = Vector2(57.245, 15.27)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 6
+text = "hey there,
+here for admissions?"
+horizontal_alignment = 1
+
+[node name="InteractionArea" parent="GuideStaff" unique_id=1724913369 instance=ExtResource("4_8baxl")]
+action_name = "Talk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GuideStaff/InteractionArea" unique_id=2027023186]
+shape = SubResource("CircleShape2D_ex3h0")
+debug_color = Color(0, 0.6433629, 0.30700803, 0.41960785)
+
+[node name="AdminBuildingDoor" type="Sprite2D" parent="." unique_id=1705037605]
+position = Vector2(-994.82, -719.13995)
+scale = Vector2(1.7248646, 1.6383662)
+texture = ExtResource("3_0chs3")
+region_enabled = true
+region_rect = Rect2(168, 415, 74, 49)
+script = ExtResource("7_byudg")
+target_scene_path = "uid://dogif7dklrp3u"
+target_spawn_id = "AdminBuildingInside"
+return_spawn_id = "AdminBuildingOutside"
+required_puzzle_id = "where_is_block"
+
+[node name="Marker2D2" type="Marker2D" parent="AdminBuildingDoor" unique_id=305271282]
+position = Vector2(-0.104351774, 37.317635)
+scale = Vector2(0.5797556, 0.61036414)
+script = ExtResource("1_gofxa")
+spawn_id = "AdminBuildingOutside"
+
+[node name="InteractionArea" parent="AdminBuildingDoor" unique_id=1527425124 instance=ExtResource("4_8baxl")]
+action_name = "Enter Building"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AdminBuildingDoor/InteractionArea" unique_id=171542561]
+position = Vector2(-1.8435669, 22.363678)
+scale = Vector2(0.9999997, 1)
+shape = SubResource("RectangleShape2D_3bgyl")
 
 [node name="Player" parent="." unique_id=1384558383 instance=ExtResource("3_w8um1")]
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=551812925]
+limit_left = -1227
+limit_top = -1224
+limit_right = 1316
+limit_bottom = 87
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=599888392]
+y_sort_enabled = true
+position = Vector2(-812.5, -453.25)
+scale = Vector2(1.7738088, 1.6309531)
+texture = ExtResource("3_0chs3")
+region_enabled = true
+region_rect = Rect2(268, 585, 77, 39)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D" unique_id=178248916]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D" unique_id=386335637]
+position = Vector2(-1.4093933, 9.350372)
+shape = SubResource("RectangleShape2D_6l360")

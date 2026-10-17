@@ -1,0 +1,198 @@
+[gd_scene format=3 uid="uid://50mwawv5iu42"]
+
+[ext_resource type="Script" uid="uid://cdafq3dryufwu" path="res://Script/Puzzles/where_is_block.gd" id="1_wib"]
+[ext_resource type="Texture2D" uid="uid://up5hmphhwxw7" path="res://Assets/UI/blue.png" id="2_8yr4e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6l360"]
+bg_color = Color(0.9714996, 0.96585125, 0.9380313, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2tcnb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2tcnb"]
+texture = ExtResource("2_8yr4e")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8yr4e"]
+texture = ExtResource("2_8yr4e")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+modulate_color = Color(1, 1, 1, 0.5882353)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2unu2"]
+texture = ExtResource("2_8yr4e")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+
+[node name="WhereIsBlock" type="Control" unique_id=1121118081]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_wib")
+show_time = 0.5
+gap_time = 0.1
+level_complete_delay = 0.6
+solved_delay = 0.5
+
+[node name="Panel" type="Panel" parent="." unique_id=271391806]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6l360")
+
+[node name="FullScreen" type="VBoxContainer" parent="." unique_id=119870942]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 33
+alignment = 1
+
+[node name="TextPanel" type="MarginContainer" parent="FullScreen" unique_id=1996524134]
+visible = false
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+
+[node name="Panel" type="Panel" parent="FullScreen/TextPanel" unique_id=512328415]
+layout_mode = 2
+
+[node name="InfoLabel" type="Label" parent="FullScreen/TextPanel/Panel" unique_id=1700000001]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="GamePanel" type="MarginContainer" parent="FullScreen" unique_id=1844012885]
+visible = false
+custom_minimum_size = Vector2(0, 550)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="Panel" type="Panel" parent="FullScreen/GamePanel" unique_id=1893124549]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="FullScreen/GamePanel/Panel" unique_id=592989828]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="Grid" type="GridContainer" parent="FullScreen/GamePanel/Panel/MarginContainer" unique_id=728348107]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 6
+theme_override_constants/v_separation = 6
+columns = 5
+
+[node name="StartPanel" type="MarginContainer" parent="FullScreen" unique_id=1114594922]
+custom_minimum_size = Vector2(0, 550)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="Panel" type="Panel" parent="FullScreen/StartPanel" unique_id=1516709116]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_2tcnb")
+
+[node name="MarginContainer" type="MarginContainer" parent="FullScreen/StartPanel/Panel" unique_id=148397429]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="FullScreen/StartPanel/Panel/MarginContainer" unique_id=772581230]
+layout_mode = 2
+theme_override_constants/separation = 38
+alignment = 1
+
+[node name="Label" type="Label" parent="FullScreen/StartPanel/Panel/MarginContainer/VBoxContainer" unique_id=1237622933]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 17
+theme_override_font_sizes/font_size = 23
+text = "Remember the order and tap the same letters in sequence."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="StartButton" type="Button" parent="FullScreen/StartPanel/Panel/MarginContainer/VBoxContainer" unique_id=1852280106]
+custom_minimum_size = Vector2(400, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 23
+theme_override_styles/normal = SubResource("StyleBoxTexture_2tcnb")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8yr4e")
+theme_override_styles/hover = SubResource("StyleBoxTexture_2unu2")
+text = "Start the Game"
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=766708705]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+
+[node name="CloseButton" type="Button" parent="MarginContainer" unique_id=1700000002]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 27
+text = "x"
+
+[connection signal="pressed" from="MarginContainer/CloseButton" to="." method="_on_close_pressed"]

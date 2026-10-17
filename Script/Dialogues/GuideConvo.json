@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Campus Guide",
+    "text": "Namaste! Main aapka campus guide hoon. Aapko kya chahiye?",
+    "sprite": "CyberGuyPortrait"
+  },
+  {
+    "name": "you",
+    "text": "Sir, mujhe campus ke baare mein thoda batao.",
+    "sprite": "PlayerPotrait"
+  },
+  {
+    "name": "Campus Guide",
+    "text": "Bilkul! Hamare campus mein kai departments hain, jaise ki Engineering, Arts, aur Science. Aapko kis department ke baare mein jaankari chahiye?",
+    "sprite": "CyberGuyPortrait"
+  },
+  {
+    "name": "you",
+    "text": "Mujhe Engineering department me admission ke baare mein jaankari chahiye.",
+    "sprite": "PlayerPotrait"
+  },
+  {
+    "name": "Campus Guide",
+    "text": "Engineering department mein admission ke liye aapko entrance exam clear karna hoga.",
+    "sprite": "CyberGuyPortrait"
+  },
+  {
+    "name": "you",
+    "text": "Entrance exam diya hai mene. Aur clear kar liya hai. Ab mujhe kya karna hoga?",
+    "sprite": "PlayerPotrait"
+  },
+  {
+    "name": "Campus Guide",
+    "text": "Bahut accha! Ab aapko admission form bharna hoga aur required documents submit karne honge.",
+    "sprite": "CyberGuyPortrait"
+  },
+  {
+    "name": "you",
+    "text": "Shukriya! Par mujhe campus ka tour bhi karna hai. Kya aap mujhe campus dikhayenge?",
+    "sprite": "PlayerPotrait"
+  },
+  {
+    "name": "Campus Guide",
+    "text": "Bilkul! Par usse pehele aapko ye puzzle solve karna hoga. Agar aap solve kar lete hain to main aapko campus ka tour Karwata hoon.",
+    "sprite": "CyberGuyPortrait"
+  }
+]

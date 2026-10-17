@@ -28,7 +28,7 @@ func _ready() -> void:
 	music_slider.value = db_to_linear(AudioServer.get_bus_volume_db(bus))
 	fullscreen_check.button_pressed = DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN
 
-	continue_button.pressed.connect(_start_game)
+	continue_button.pressed.connect(_continue_game)
 	new_game_button.pressed.connect(_new_game)
 	options_button.pressed.connect(options_panel.show)
 	back_button.pressed.connect(options_panel.hide)
@@ -42,11 +42,16 @@ func _new_game() -> void:
 	_start_game()
 
 
-func _start_game() -> void:
+func _continue_game() -> void:
+	var saved_scene := SaveManager.peek_saved_scene()
+	_start_game(saved_scene if saved_scene != "" else GAME_SCENE)
+
+
+func _start_game(scene_path: String = GAME_SCENE) -> void:
 	GameManager.game_loaded = false
 	GameManager.player = null
 	SceneManager.reset()
-	get_tree().change_scene_to_file(GAME_SCENE)
+	get_tree().change_scene_to_file(scene_path)
 
 
 func _on_volume_changed(value: float) -> void:

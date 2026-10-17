@@ -79,6 +79,10 @@ func _cancel_footstep_fade() -> void:
 		footstep_fade_tween.kill()
 
 func _apply_pending_spawn_point() -> void:
+	var pending_position = SceneManager.consume_pending_position()
+	if pending_position != null:
+		global_position = pending_position
+		return
 	var spawn_id := SceneManager.consume_pending_spawn_id()
 	if spawn_id.is_empty():
 		return

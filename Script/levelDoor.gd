@@ -17,6 +17,9 @@ extends Node
 ## Seconds to skip at the start of the door sound.
 @export var door_sound_start_time := 0.0
 
+## If set, the door stays inert (no prompt, no interaction) until this puzzle is solved.
+@export var required_puzzle_id := ""
+
 @onready var interaction_area: InteractionArea = _find_interaction_area()
 
 
@@ -34,6 +37,20 @@ func _ready() -> void:
 		interaction_area.interact = Callable(self, "_on_interact")
 	else:
 		push_error("LevelDoor '%s' has no InteractionArea (as a child or parent)" % name)
+	set_process(required_puzzle_id != "" and interaction_area != null)
+	_update_lock()
+
+
+func _process(_delta: float) -> void:
+	_update_lock()
+
+
+func _update_lock() -> void:
+	if required_puzzle_id == "" or interaction_area == null:
+		return
+	var unlocked := SaveManager.is_puzzle_solved(required_puzzle_id)
+	if interaction_area.enabled != unlocked:
+		interaction_area.enabled = unlocked
 
 
 func _on_interact() -> void:

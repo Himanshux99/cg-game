@@ -1,0 +1,27 @@
+[
+  {
+    "name": "you",
+    "text": "Hello! A guide outside told me to come here to continue the admission process. I've got my enrollment form, so... what now?",
+    "sprite": "PlayerPotrait"
+  },
+  {
+    "name": "adminBuildingGuy",
+    "text": "Very good, sir. You need to submit that form in Room 104.",
+    "sprite": "adminBuildingGuy"
+  },
+  {
+    "name": "you",
+    "text": "Room 104. Got it. Finally, someone who gives clear instructions. This admission process might actually be easy.",
+    "sprite": "PlayerPotrait"
+  },
+  {
+    "name": "adminBuildingGuy",
+    "text": "You'll find it down the corridor. Just follow the room numbers.",
+    "sprite": "adminBuildingGuy"
+  },
+  {
+    "name": "you",
+    "text": "Perfect. Thank you, sir!",
+    "sprite": "PlayerPotrait"
+  }
+]

@@ -22,7 +22,6 @@
 [ext_resource type="Texture2D" uid="uid://dynspmjm0pcca" path="res://Assets/gaay_assets/Bush 2 - ORANGE.png" id="14_w1ktw"]
 [ext_resource type="PackedScene" uid="uid://ccocxd54w4hmm" path="res://Scene/Interactables/cafe_door.tscn" id="21_cl5ty"]
 [ext_resource type="PackedScene" uid="uid://cs75st64h1wjq" path="res://Scene/Cabin Scene/SecurityCabin.tscn" id="22_r0h4p"]
-[ext_resource type="Texture2D" uid="uid://86etkjure48u" path="res://Assets/clg_map.png" id="23_b12n7"]
 [ext_resource type="Texture2D" uid="uid://57fknuins3kk" path="res://Assets/PassendgerBusSmall.png" id="23_cn0a0"]
 [ext_resource type="Script" uid="uid://c6s1dbjfxma4u" path="res://Script/interactions/spawn_point.gd" id="24_bcho1"]
 [ext_resource type="Texture2D" uid="uid://cbiqb86mymsxt" path="res://Assets/b97f97c0-b33c-423f-a3c8-793338db8fcb.png" id="24_h8w83"]
@@ -4331,9 +4330,6 @@ sources/0 = SubResource("TileSetAtlasSource_5w6s4")
 atlas = ExtResource("23_cn0a0")
 region = Rect2(46, 189, 1706, 609)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ejki1"]
-atlas = ExtResource("23_b12n7")
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3bgyl"]
 size = Vector2(403, 39)
 
@@ -4342,6 +4338,9 @@ size = Vector2(415, 59)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ex3h0"]
 size = Vector2(409, 174)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3bgyl"]
+distance = 169.0
 
 [node name="Part-1" type="Node2D" unique_id=941616756 node_paths=PackedStringArray("player", "bus")]
 y_sort_enabled = true
@@ -4396,18 +4395,13 @@ position = Vector2(-1779, -541)
 
 [node name="SecurityCabin" parent="." unique_id=319077443 instance=ExtResource("22_r0h4p")]
 z_index = 1
-position = Vector2(-678.00006, -714)
+position = Vector2(-678.00006, -715)
 
 [node name="Bus" type="Sprite2D" parent="." unique_id=464378633]
 z_index = 1
 position = Vector2(-1727.9404, 102.89373)
 scale = Vector2(0.4627052, 0.4627052)
 texture = SubResource("AtlasTexture_3bgyl")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=994075426]
-position = Vector2(5345, -2038.0002)
-scale = Vector2(1.7251664, 1.725167)
-texture = SubResource("AtlasTexture_ejki1")
 
 [node name="CollegeMap" type="Sprite2D" parent="." unique_id=268729588]
 position = Vector2(-355, -1427)
@@ -4476,6 +4470,9 @@ polygon = PackedVector2Array(-531, -789, -474, -817, -473, -849, -238, -850, -23
 position = Vector2(-361, -635)
 script = ExtResource("24_bcho1")
 spawn_id = " "
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=309143379]
+shape = SubResource("WorldBoundaryShape2D_3bgyl")
 
 [connection signal="body_entered" from="EnteryClosed/Area2D" to="SecurityCabin" method="_on_2d_body_entered_clg_gate"]
 [connection signal="body_entered" from="CollegeEntry/InteractionArea" to="CollegeEntry/InteractionArea" method="_on_body_entered"]
