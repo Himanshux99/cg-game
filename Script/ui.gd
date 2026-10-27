@@ -50,11 +50,3 @@ func _on_setting_button_pressed() -> void:
 
 func _on_save_button_pressed() -> void:
 	GameManager.save_game()
-
-
-func _on_delete_button_pressed() -> void:
-	GameManager.delete_save()
-
-
-func _on_restart_button_pressed() -> void:
-	GameManager.restart_game()

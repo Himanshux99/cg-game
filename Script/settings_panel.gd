@@ -20,6 +20,9 @@ const MAIN_MENU_SCENE := "res://Scene/MainMenu.tscn"
 @onready var _close_button: Button = %CloseButton
 @onready var _home_button: Button = %HomeButton
 @onready var _resume_button: Button = %ResumeButton
+@onready var _save_box: Control = %SaveBox
+@onready var _restart_button: Button = %RestartButton
+@onready var _delete_button: Button = %DeleteButton
 
 
 var _was_paused := false
@@ -55,6 +58,10 @@ func _ready() -> void:
 	_close_button.pressed.connect(close)
 	_resume_button.pressed.connect(close)
 	_home_button.pressed.connect(_go_home)
+	# Save wiping only makes sense mid-game; the title screen has New Game
+	_save_box.visible = in_game
+	_restart_button.pressed.connect(_restart)
+	_delete_button.pressed.connect(GameManager.delete_save)
 	visibility_changed.connect(_on_visibility_changed)
 
 
@@ -92,6 +99,12 @@ func _go_home() -> void:
 	GameManager.player = null
 	SceneManager.reset()
 	get_tree().change_scene_to_file(MAIN_MENU_SCENE)
+
+
+## Wipes the save and starts over from the splash screen.
+func _restart() -> void:
+	get_tree().paused = false
+	GameManager.restart_game()
 
 
 func _on_master_toggled(on: bool) -> void:

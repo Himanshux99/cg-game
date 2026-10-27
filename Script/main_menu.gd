@@ -33,11 +33,11 @@ func _ready() -> void:
 func _play_intro() -> void:
 	buttons.modulate.a = 0.0
 	create_tween().tween_property(buttons, "modulate:a", 1.0, 0.5).set_delay(0.15)
-	# Whole-pixel steps: sub-pixel offsets make the big downscaled logo shimmer
+	# Sub-pixel motion; the logo texture has mipmaps so the downscale doesn't shimmer
 	var base_y := logo.position.y
 	var bob := create_tween().set_loops()
-	bob.tween_method(func(v: float) -> void: logo.position.y = base_y - roundf(v), 0.0, 6.0, 1.8).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	bob.tween_method(func(v: float) -> void: logo.position.y = base_y - roundf(v), 6.0, 0.0, 1.8).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	bob.tween_property(logo, "position:y", base_y - 14.0, 1.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	bob.tween_property(logo, "position:y", base_y, 1.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 
 func _new_game() -> void:
