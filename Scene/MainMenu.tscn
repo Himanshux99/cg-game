@@ -4,6 +4,7 @@
 [ext_resource type="Theme" path="res://Assets/UI/MenuTheme.tres" id="2_theme"]
 [ext_resource type="Texture2D" uid="uid://nob0qu1fovmi" path="res://Assets/Icon/Logo_Long.png" id="2_logo"]
 [ext_resource type="PackedScene" path="res://Scene/settings_menu.tscn" id="4_settings"]
+[ext_resource type="PackedScene" path="res://Scene/credits.tscn" id="5_credits"]
 
 [sub_resource type="Gradient" id="Gradient_bg"]
 colors = PackedColorArray(0.16, 0.3, 0.55, 1, 0.07, 0.12, 0.26, 1)
@@ -113,7 +114,28 @@ theme_type_variation = &"RedButton"
 theme_override_font_sizes/font_size = 30
 text = "Quit"
 
+[node name="CreditsButton" type="Button" parent="."]
+custom_minimum_size = Vector2(160, 48)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -184.0
+offset_top = -72.0
+offset_right = -24.0
+offset_bottom = -24.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "Credits"
+
 [node name="SettingsMenu" parent="." instance=ExtResource("4_settings")]
 visible = false
 layout_mode = 1
 in_game = false
+
+[node name="Credits" parent="." instance=ExtResource("5_credits")]
+visible = false
+layout_mode = 1

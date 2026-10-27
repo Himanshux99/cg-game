@@ -13,9 +13,9 @@ config_version=5
 config/name="Pendora"
 run/main_scene="res://Scene/Splash.tscn"
 config/features=PackedStringArray("4.7", "Mobile")
-config/icon="uid://bmkpt45df3wbi"
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
+config/icon="uid://bmkpt45df3wbi"
 
 [autoload]
 
@@ -36,7 +36,6 @@ window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
-window/handheld/orientation=0
 
 [dotnet]
 

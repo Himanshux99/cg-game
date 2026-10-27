@@ -8,6 +8,8 @@ const GAME_SCENE := "res://Scene/Part-1.tscn"
 @onready var options_button: Button = $Buttons/Options
 @onready var quit_button: Button = $Buttons/Quit
 @onready var settings_menu: Control = $SettingsMenu
+@onready var credits_button: Button = $CreditsButton
+@onready var credits: Control = $Credits
 @onready var logo: Control = $Logo
 @onready var buttons: Control = $Buttons
 
@@ -25,6 +27,7 @@ func _ready() -> void:
 	continue_button.pressed.connect(_continue_game)
 	new_game_button.pressed.connect(_new_game)
 	options_button.pressed.connect(settings_menu.show)
+	credits_button.pressed.connect(credits.show)
 	quit_button.pressed.connect(get_tree().quit)
 	_play_intro()
 
