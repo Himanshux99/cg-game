@@ -1,0 +1,222 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Script/settings_panel.gd" id="1_script"]
+[ext_resource type="Theme" path="res://Assets/UI/MenuTheme.tres" id="2_theme"]
+[ext_resource type="Shader" path="res://Script/BlurBackdrop.gdshader" id="3_blur"]
+[ext_resource type="Texture2D" path="res://Assets/UI/gear.png" id="4_gear"]
+[ext_resource type="Texture2D" path="res://Assets/UI/exitLeft.png" id="5_home"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_blur"]
+shader = ExtResource("3_blur")
+shader_parameter/blur_lod = 3.0
+shader_parameter/dim = 0.35
+
+[node name="SettingsMenu" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_theme")
+script = ExtResource("1_script")
+
+[node name="Blur" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_blur")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Card" type="PanelContainer" parent="Center"]
+custom_minimum_size = Vector2(620, 0)
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="Center/Card"]
+layout_mode = 2
+theme_override_constants/margin_left = 22
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 22
+theme_override_constants/margin_bottom = 24
+
+[node name="VBox" type="VBoxContainer" parent="Center/Card/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Header" type="PanelContainer" parent="Center/Card/Margin/VBox"]
+layout_mode = 2
+theme_type_variation = &"HeaderPanel"
+
+[node name="HBox" type="HBoxContainer" parent="Center/Card/Margin/VBox/Header"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Gear" type="TextureRect" parent="Center/Card/Margin/VBox/Header/HBox"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("4_gear")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Title" type="Label" parent="Center/Card/Margin/VBox/Header/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"TitleLabel"
+text = "Settings"
+
+[node name="CloseButton" type="Button" parent="Center/Card/Margin/VBox/Header/HBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(46, 46)
+layout_mode = 2
+theme_type_variation = &"RedButton"
+text = "X"
+
+[node name="SoundLabel" type="Label" parent="Center/Card/Margin/VBox"]
+layout_mode = 2
+theme_type_variation = &"SectionLabel"
+text = "SOUND"
+
+[node name="MasterRow" type="PanelContainer" parent="Center/Card/Margin/VBox"]
+layout_mode = 2
+theme_type_variation = &"RowPanel"
+
+[node name="VBox" type="VBoxContainer" parent="Center/Card/Margin/VBox/MasterRow"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Top" type="HBoxContainer" parent="Center/Card/Margin/VBox/MasterRow/VBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Center/Card/Margin/VBox/MasterRow/VBox/Top"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Master Volume"
+
+[node name="MasterToggle" type="CheckButton" parent="Center/Card/Margin/VBox/MasterRow/VBox/Top"]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+
+[node name="MasterSlider" type="HSlider" parent="Center/Card/Margin/VBox/MasterRow/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="MusicRow" type="PanelContainer" parent="Center/Card/Margin/VBox"]
+layout_mode = 2
+theme_type_variation = &"RowPanel"
+
+[node name="VBox" type="VBoxContainer" parent="Center/Card/Margin/VBox/MusicRow"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Top" type="HBoxContainer" parent="Center/Card/Margin/VBox/MusicRow/VBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Center/Card/Margin/VBox/MusicRow/VBox/Top"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Background Music"
+
+[node name="MusicToggle" type="CheckButton" parent="Center/Card/Margin/VBox/MusicRow/VBox/Top"]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+
+[node name="MusicSlider" type="HSlider" parent="Center/Card/Margin/VBox/MusicRow/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="ClickRow" type="PanelContainer" parent="Center/Card/Margin/VBox"]
+layout_mode = 2
+theme_type_variation = &"RowPanel"
+
+[node name="VBox" type="VBoxContainer" parent="Center/Card/Margin/VBox/ClickRow"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Top" type="HBoxContainer" parent="Center/Card/Margin/VBox/ClickRow/VBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Center/Card/Margin/VBox/ClickRow/VBox/Top"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Button Click Sound"
+
+[node name="ClickToggle" type="CheckButton" parent="Center/Card/Margin/VBox/ClickRow/VBox/Top"]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+
+[node name="ClickSlider" type="HSlider" parent="Center/Card/Margin/VBox/ClickRow/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="DisplayBox" type="VBoxContainer" parent="Center/Card/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="DisplayLabel" type="Label" parent="Center/Card/Margin/VBox/DisplayBox"]
+layout_mode = 2
+theme_type_variation = &"SectionLabel"
+text = "DISPLAY"
+
+[node name="FullscreenRow" type="PanelContainer" parent="Center/Card/Margin/VBox/DisplayBox"]
+layout_mode = 2
+theme_type_variation = &"RowPanel"
+
+[node name="Top" type="HBoxContainer" parent="Center/Card/Margin/VBox/DisplayBox/FullscreenRow"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Center/Card/Margin/VBox/DisplayBox/FullscreenRow/Top"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Fullscreen"
+
+[node name="FullscreenToggle" type="CheckButton" parent="Center/Card/Margin/VBox/DisplayBox/FullscreenRow/Top"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="Center/Card/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="HomeButton" type="Button" parent="Center/Card/Margin/VBox/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 54)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"YellowButton"
+text = "Home"
+icon = ExtResource("5_home")
+icon_alignment = 0
+
+[node name="ResumeButton" type="Button" parent="Center/Card/Margin/VBox/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 54)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"GreenButton"
+text = "Resume"

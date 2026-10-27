@@ -11,8 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cveoybi8o1kkg" path="res://Assets/UI/trashcanOpen.png" id="8_vacr6"]
 [ext_resource type="Texture2D" uid="uid://cbxwd5yynsrwh" path="res://Assets/UI/return.png" id="9_p1i6o"]
 [ext_resource type="Texture2D" uid="uid://d0i0we4bgdwcw" path="res://Assets/UI/icon_search.png" id="9_vacr6"]
-[ext_resource type="Script" path="res://Script/settings_panel.gd" id="10_settings"]
-[ext_resource type="Shader" path="res://Script/BlurBackdrop.gdshader" id="11_blur"]
+[ext_resource type="PackedScene" path="res://Scene/settings_menu.tscn" id="10_settings"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ex3h0"]
 texture = ExtResource("8_d0mn4")
@@ -77,11 +76,6 @@ region_rect = Rect2(0, 0, 96, 96)
 modulate_color = Color(1, 1, 1, 0.6431373)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p1i6o"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_blur"]
-shader = ExtResource("11_blur")
-shader_parameter/blur_lod = 3.0
-shader_parameter/dim = 0.35
 
 [node name="UI" type="CanvasLayer" unique_id=1583945617 groups=["MobileControlUi"]]
 script = ExtResource("1_bpjw8")
@@ -289,132 +283,7 @@ theme_override_constants/margin_bottom = 25
 layout_mode = 2
 theme_override_constants/separation = 25
 
-[node name="SettingsBlur" type="ColorRect" parent="." unique_id=880100000]
-visible = false
-material = SubResource("ShaderMaterial_blur")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
-[node name="SettingsPanel" type="Panel" parent="." unique_id=880100001]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -240.0
-offset_top = -220.0
-offset_right = 240.0
-offset_bottom = 220.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("10_settings")
-
-[node name="Margin" type="MarginContainer" parent="SettingsPanel" unique_id=880100002]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="VBox" type="VBoxContainer" parent="SettingsPanel/Margin" unique_id=880100003]
-layout_mode = 2
-theme_override_constants/separation = 12
-
-[node name="Header" type="HBoxContainer" parent="SettingsPanel/Margin/VBox" unique_id=880100004]
-layout_mode = 2
-
-[node name="Title" type="Label" parent="SettingsPanel/Margin/VBox/Header" unique_id=880100005]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Settings"
-
-[node name="CloseButton" type="Button" parent="SettingsPanel/Margin/VBox/Header" unique_id=880100006]
-unique_name_in_owner = true
-layout_mode = 2
-text = "X"
-
-[node name="Tabs" type="TabContainer" parent="SettingsPanel/Margin/VBox" unique_id=880100007]
-layout_mode = 2
-size_flags_vertical = 3
-current_tab = 0
-
-[node name="Sound" type="VBoxContainer" parent="SettingsPanel/Margin/VBox/Tabs" unique_id=880100008]
-layout_mode = 2
-theme_override_constants/separation = 8
-metadata/_tab_index = 0
-
-[node name="MasterRow" type="HBoxContainer" parent="SettingsPanel/Margin/VBox/Tabs/Sound" unique_id=880100017]
-layout_mode = 2
-
-[node name="MasterLabel" type="Label" parent="SettingsPanel/Margin/VBox/Tabs/Sound/MasterRow" unique_id=880100018]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Master Volume"
-
-[node name="MasterToggle" type="CheckButton" parent="SettingsPanel/Margin/VBox/Tabs/Sound/MasterRow" unique_id=880100019]
-unique_name_in_owner = true
-layout_mode = 2
-button_pressed = true
-
-[node name="MasterSlider" type="HSlider" parent="SettingsPanel/Margin/VBox/Tabs/Sound" unique_id=880100020]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 24)
-layout_mode = 2
-max_value = 1.0
-step = 0.01
-value = 1.0
-
-[node name="MusicRow" type="HBoxContainer" parent="SettingsPanel/Margin/VBox/Tabs/Sound" unique_id=880100009]
-layout_mode = 2
-
-[node name="MusicLabel" type="Label" parent="SettingsPanel/Margin/VBox/Tabs/Sound/MusicRow" unique_id=880100010]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Background Music"
-
-[node name="MusicToggle" type="CheckButton" parent="SettingsPanel/Margin/VBox/Tabs/Sound/MusicRow" unique_id=880100011]
-unique_name_in_owner = true
-layout_mode = 2
-button_pressed = true
-
-[node name="MusicSlider" type="HSlider" parent="SettingsPanel/Margin/VBox/Tabs/Sound" unique_id=880100012]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 24)
-layout_mode = 2
-max_value = 1.0
-step = 0.01
-value = 1.0
-
-[node name="ClickRow" type="HBoxContainer" parent="SettingsPanel/Margin/VBox/Tabs/Sound" unique_id=880100013]
-layout_mode = 2
-
-[node name="ClickLabel" type="Label" parent="SettingsPanel/Margin/VBox/Tabs/Sound/ClickRow" unique_id=880100014]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Button Click Sound"
-
-[node name="ClickToggle" type="CheckButton" parent="SettingsPanel/Margin/VBox/Tabs/Sound/ClickRow" unique_id=880100015]
-unique_name_in_owner = true
-layout_mode = 2
-button_pressed = true
-
-[node name="ClickSlider" type="HSlider" parent="SettingsPanel/Margin/VBox/Tabs/Sound" unique_id=880100016]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 24)
-layout_mode = 2
-max_value = 1.0
-step = 0.01
-value = 1.0
+[node name="SettingsPanel" parent="." unique_id=880100001 instance=ExtResource("10_settings")]
 
 [connection signal="pressed" from="SettingButtonPanel/SettingButton" to="." method="_on_setting_button_pressed"]
 [connection signal="pressed" from="SavePanel/SaveButton" to="." method="_on_save_button_pressed"]

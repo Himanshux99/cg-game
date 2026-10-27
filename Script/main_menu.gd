@@ -1,5 +1,5 @@
 extends Control
-## Title screen: Continue / New Game / Options / Quit.
+## Title screen: Continue / New Game / Settings / Quit.
 
 const GAME_SCENE := "res://Scene/Part-1.tscn"
 
@@ -7,10 +7,9 @@ const GAME_SCENE := "res://Scene/Part-1.tscn"
 @onready var new_game_button: Button = $Buttons/NewGame
 @onready var options_button: Button = $Buttons/Options
 @onready var quit_button: Button = $Buttons/Quit
-@onready var options_panel: Control = $OptionsPanel
-@onready var music_slider: HSlider = $OptionsPanel/Box/MusicSlider
-@onready var fullscreen_check: CheckButton = $OptionsPanel/Box/Fullscreen
-@onready var back_button: Button = $OptionsPanel/Box/Back
+@onready var settings_menu: Control = $SettingsMenu
+@onready var logo: Control = $Logo
+@onready var buttons: Control = $Buttons
 
 
 func _ready() -> void:
@@ -19,22 +18,26 @@ func _ready() -> void:
 		new_game_button.grab_focus()
 	else:
 		continue_button.grab_focus()
-	# Phones have no windowed mode and no quit convention
+	# Phones have no quit convention
 	if OS.has_feature("mobile"):
 		quit_button.hide()
-		fullscreen_check.hide()
-
-	var bus := AudioServer.get_bus_index("Master")
-	music_slider.value = db_to_linear(AudioServer.get_bus_volume_db(bus))
-	fullscreen_check.button_pressed = DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN
 
 	continue_button.pressed.connect(_continue_game)
 	new_game_button.pressed.connect(_new_game)
-	options_button.pressed.connect(options_panel.show)
-	back_button.pressed.connect(options_panel.hide)
+	options_button.pressed.connect(settings_menu.show)
 	quit_button.pressed.connect(get_tree().quit)
-	music_slider.value_changed.connect(_on_volume_changed)
-	fullscreen_check.toggled.connect(_on_fullscreen_toggled)
+	_play_intro()
+
+
+## Fades the buttons in and keeps the logo gently floating.
+func _play_intro() -> void:
+	buttons.modulate.a = 0.0
+	create_tween().tween_property(buttons, "modulate:a", 1.0, 0.5).set_delay(0.15)
+	# Whole-pixel steps: sub-pixel offsets make the big downscaled logo shimmer
+	var base_y := logo.position.y
+	var bob := create_tween().set_loops()
+	bob.tween_method(func(v: float) -> void: logo.position.y = base_y - roundf(v), 0.0, 6.0, 1.8).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	bob.tween_method(func(v: float) -> void: logo.position.y = base_y - roundf(v), 6.0, 0.0, 1.8).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 
 func _new_game() -> void:
@@ -52,19 +55,3 @@ func _start_game(scene_path: String = GAME_SCENE) -> void:
 	GameManager.player = null
 	SceneManager.reset()
 	get_tree().change_scene_to_file(scene_path)
-
-
-func _on_volume_changed(value: float) -> void:
-	var bus := AudioServer.get_bus_index("Master")
-	AudioServer.set_bus_volume_db(bus, linear_to_db(value))
-	AudioServer.set_bus_mute(bus, value <= 0.0)
-
-
-func _on_fullscreen_toggled(on: bool) -> void:
-	DisplayServer.window_set_mode(
-		DisplayServer.WINDOW_MODE_FULLSCREEN if on else DisplayServer.WINDOW_MODE_WINDOWED)
-
-
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel") and options_panel.visible:
-		options_panel.hide()
