@@ -24,6 +24,9 @@ var save_data := {
 
 func save_game():
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
+	if file == null:
+		push_error("Could not open save file: %s" % error_string(FileAccess.get_open_error()))
+		return
 	file.store_string(JSON.stringify(save_data))
 	print("Game Saved")
 	file.close()

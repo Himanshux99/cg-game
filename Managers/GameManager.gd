@@ -75,6 +75,13 @@ func save_game():
 	SaveManager.save_game()
 
 
+## Android can kill the app while it is backgrounded, so persist progress when it loses focus or pauses.
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_APPLICATION_PAUSED or what == NOTIFICATION_APPLICATION_FOCUS_OUT:
+		if player != null and is_instance_valid(player) and game_loaded:
+			save_game()
+
+
 func delete_save():
 	SaveManager.clear_save()
 

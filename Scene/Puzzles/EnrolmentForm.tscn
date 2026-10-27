@@ -78,7 +78,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_viexo")
-correct_college_id = "VIT2208"
+correct_college_id = "HU2208"
 ERROR_COLOR = Color(1, 0, 0.13725491, 1)
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=125687958]
@@ -273,9 +273,9 @@ popup/item_0/text = " Select College"
 popup/item_0/id = 2
 popup/item_0/disabled = true
 popup/item_0/separator = true
-popup/item_1/text = " VIT"
+popup/item_1/text = " Hisaga University"
 popup/item_1/id = 0
-popup/item_2/text = " NOT VIT"
+popup/item_2/text = " Other University"
 popup/item_2/id = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="AspectRatioContainer/Panel/FormContainer/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/HBoxContainer3" unique_id=1996395873]

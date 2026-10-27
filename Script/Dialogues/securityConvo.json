@@ -6,7 +6,7 @@
   },
   {
 	"name": "you",
-	"text": "Sir, I'm here to take admission in Vidhya Institute of Technology. I'm a new student.",
+	"text": "Sir, I'm here to take admission in Hisaga University. I'm a new student.",
 	"sprite": "PlayerPotrait"
   },
   {
@@ -21,7 +21,7 @@
   },
   {
 	"name": "Security Guard",
-	"text": "Then you can't enter without it. You need the allotment form with college ID, VIT2208.",
+	"text": "Then you can't enter without it. You need the allotment form with college ID, HU2208.",
 	"sprite": "SecurityPotrait"
   },
   {
