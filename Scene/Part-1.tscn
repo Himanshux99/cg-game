@@ -4339,9 +4339,6 @@ size = Vector2(415, 59)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ex3h0"]
 size = Vector2(409, 174)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3bgyl"]
-distance = 169.0
-
 [node name="Part-1" type="Node2D" unique_id=941616756 node_paths=PackedStringArray("player", "bus")]
 y_sort_enabled = true
 script = ExtResource("1_bcho1")
@@ -4391,6 +4388,9 @@ tile_map_data = PackedByteArray("AADq//7/AAAAAAAAAADq////AAAAAAEAAADq/wAAAAAAAAI
 tile_set = SubResource("TileSet_ktv8x")
 
 [node name="CafeDoor" parent="." unique_id=812334762 instance=ExtResource("21_cl5ty")]
+z_index = 1
+z_as_relative = false
+y_sort_enabled = true
 position = Vector2(-1779, -541)
 
 [node name="SecurityCabin" parent="." unique_id=319077443 instance=ExtResource("22_r0h4p")]
@@ -4470,9 +4470,6 @@ polygon = PackedVector2Array(-531, -789, -474, -817, -473, -849, -238, -850, -23
 position = Vector2(-361, -635)
 script = ExtResource("24_bcho1")
 spawn_id = " "
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=309143379]
-shape = SubResource("WorldBoundaryShape2D_3bgyl")
 
 [connection signal="body_entered" from="EnteryClosed/Area2D" to="SecurityCabin" method="_on_2d_body_entered_clg_gate"]
 [connection signal="body_entered" from="CollegeEntry/InteractionArea" to="CollegeEntry/InteractionArea" method="_on_body_entered"]

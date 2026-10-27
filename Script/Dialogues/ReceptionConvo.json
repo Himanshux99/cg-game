@@ -1,0 +1,27 @@
+[
+  {
+    "name": "you",
+    "text": "Excuse me, I need to submit my enrolment form. Is this the right counter?",
+    "sprite": "PlayerPotrait"
+  },
+  {
+    "name": "Receptionist",
+    "text": "It is. Take a token and wait like everyone else. Have you seen that queue?",
+    "sprite": ""
+  },
+  {
+    "name": "you",
+    "text": "That's... a lot of people. Is there any way to move faster?",
+    "sprite": "PlayerPotrait"
+  },
+  {
+    "name": "Receptionist",
+    "text": "Maybe. I call the tokens in a pattern. Tell me which tokens come next, in order, and I'll move you up. One wrong guess and the queue reshuffles.",
+    "sprite": ""
+  },
+  {
+    "name": "you",
+    "text": "Guess the next numbers... Alright, let me look at the board.",
+    "sprite": "PlayerPotrait"
+  }
+]

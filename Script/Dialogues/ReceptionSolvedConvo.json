@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Receptionist",
+    "text": "Every token right, in order. You clearly know how my queue works. You're next.",
+    "sprite": ""
+  },
+  {
+    "name": "you",
+    "text": "Finally, some progress.",
+    "sprite": "PlayerPotrait"
+  }
+]

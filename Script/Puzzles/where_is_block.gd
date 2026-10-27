@@ -24,10 +24,11 @@ const CELL_SCENE := preload("res://Assets/UI/Components/cell.tscn")
 @export var wrong_delay: float = 1.0
 ## Pause after the final level before puzzle_solved is emitted.
 @export var solved_delay: float = 1.5
-@export_group("Colors")
-@export var color_highlight := Color(1, 0.85, 0.2)
-@export var color_right := Color(0.6, 0.9, 0.6)
-@export var color_wrong := Color(1, 0.45, 0.45)
+@export_group("Cell textures")
+@export var tex_idle: Texture2D = preload("res://Assets/UI/grey.png")
+@export var tex_highlight: Texture2D = preload("res://Assets/UI/yellow.png")
+@export var tex_right: Texture2D = preload("res://Assets/UI/green.png")
+@export var tex_wrong: Texture2D = preload("res://Assets/UI/red.png")
 
 @onready var grid: GridContainer = $FullScreen/GamePanel/Panel/MarginContainer/Grid
 @onready var start_panel: Control = $FullScreen/StartPanel
@@ -36,7 +37,10 @@ const CELL_SCENE := preload("res://Assets/UI/Components/cell.tscn")
 @onready var game_panel: Control = $FullScreen/GamePanel
 @onready var info: Label = $FullScreen/TextPanel/Panel/InfoLabel
 
-var idle_color := Color.WHITE  # read from cell.tscn
+var box_idle: StyleBoxTexture
+var box_highlight: StyleBoxTexture
+var box_right: StyleBoxTexture
+var box_wrong: StyleBoxTexture
 var letters: Array[String] = []   # letters[i] is the letter of grid cell i, fixed for the playthrough
 var cells: Array[Control] = []
 var level := 1
@@ -45,7 +49,21 @@ var accepting_input := false
 var _run_id := 0   # invalidates in-flight sequence playback
 
 
+func _make_box(tex: Texture2D) -> StyleBoxTexture:
+	var box := StyleBoxTexture.new()
+	box.texture = tex
+	box.texture_margin_left = 4.0
+	box.texture_margin_top = 4.0
+	box.texture_margin_right = 4.0
+	box.texture_margin_bottom = 5.0
+	return box
+
+
 func _ready() -> void:
+	box_idle = _make_box(tex_idle)
+	box_highlight = _make_box(tex_highlight)
+	box_right = _make_box(tex_right)
+	box_wrong = _make_box(tex_wrong)
 	_build_grid()
 	info.text = "Press Start when you are ready."
 	text_panel.hide()
@@ -93,11 +111,9 @@ func _build_grid() -> void:
 		grid.add_child(cell)
 		var label := cell.get_node("Label") as Label
 		label.text = letters[i]
-		# Style comes from cell.tscn; duplicate so each cell can change colour independently.
-		cell.add_theme_stylebox_override("panel", cell.get_theme_stylebox("panel").duplicate())
+		cell.add_theme_stylebox_override("panel", box_idle)
 		cell.gui_input.connect(_on_cell_input.bind(i))
 		cells.append(cell)
-	idle_color = (cells[0].get_theme_stylebox("panel") as StyleBoxFlat).bg_color
 
 
 func _start_level() -> void:
@@ -112,9 +128,9 @@ func _start_level() -> void:
 		if run != _run_id:
 			return
 		var idx := letters.find(target_sequence[n])  # locate by letter, not by index
-		_set_color(idx, color_highlight)
+		_set_box(idx, box_highlight)
 		await get_tree().create_timer(show_time).timeout
-		_set_color(idx, idle_color)
+		_set_box(idx, box_idle)
 		await get_tree().create_timer(gap_time).timeout
 	if run != _run_id:
 		return
@@ -128,14 +144,14 @@ func _on_cell_input(event: InputEvent, index: int) -> void:
 	if not (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT):
 		return
 	if letters[index] == target_sequence[step]:
-		_set_color(index, color_right)
+		_set_box(index, box_right)
 		step += 1
 		if step == level:
 			accepting_input = false
 			_level_complete()
 	else:
 		accepting_input = false
-		_set_color(index, color_wrong)
+		_set_box(index, box_wrong)
 		info.text = "Wrong! You failed."
 		await get_tree().create_timer(wrong_delay).timeout
 		_return_to_start()
@@ -155,12 +171,11 @@ func _level_complete() -> void:
 
 func _reset_cells() -> void:
 	for i in cells.size():
-		_set_color(i, idle_color)
+		_set_box(i, box_idle)
 
 
-func _set_color(index: int, color: Color) -> void:
-	var box := cells[index].get_theme_stylebox("panel") as StyleBoxFlat
-	box.bg_color = color
+func _set_box(index: int, box: StyleBoxTexture) -> void:
+	cells[index].add_theme_stylebox_override("panel", box)
 
 
 func _on_close_pressed() -> void:

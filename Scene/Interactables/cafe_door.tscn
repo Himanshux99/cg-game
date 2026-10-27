@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ccocxd54w4hmm"]
 
-[ext_resource type="Script" uid="uid://dm0p26bb52gcd" path="res://Script/levelDoor.gd" id="1_woxyl"]
+[ext_resource type="Script" uid="uid://dhe03qby3kb72" path="res://Script/cafeDoor.gd" id="1_woxyl"]
 [ext_resource type="Texture2D" uid="uid://bfcc2egjbhcp7" path="res://Assets/gaay_assets/Building1.png" id="3_0etb7"]
 [ext_resource type="PackedScene" uid="uid://d2cst3bbenwx4" path="res://Interaction/Interaction Area/InteractionArea.tscn" id="4_gmwmh"]
 
